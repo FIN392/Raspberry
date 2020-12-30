@@ -1,6 +1,6 @@
 # Project RB-FIN392
 
-The goal is to 
+The goal is: 
 
 - [PHASE I](#PHASE_I): Basic installation of the Raspberry Pi
 - [PHASE II](#PHASE_II): Install the '*telegramMonitoring*' scripts
