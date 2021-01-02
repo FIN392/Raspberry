@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #
-# Tasks to be done on log in
-#
 # sudo nano /home/pi/.bashrc
 #
-#     # Tasks to be done on log in
+#     (Add to the end of the file)
+#
+#     # telegramMonitoring: Log in message
 #     /home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1
 #
 
@@ -20,7 +20,3 @@ tMPath=/home/pi/telegramMonitoring
 	echo "USER=$USER" ; \
 	echo "SSH_CONNECTION=$SSH_CONNECTION</code>" \
 ) | $tMPath/sendTelegramMessage.sh
-
-#
-# ...
-#

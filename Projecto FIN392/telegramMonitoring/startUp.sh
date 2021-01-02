@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #
-# Tasks to be done at start up
-#
 # EDITOR=nano crontab -e
 #
-#     # Tasks to be done at start up
+#     (Add to beginning of file)
+#
+#     # telegramMonitoring: Send initial message and start the bot listener
 #     @reboot (sudo /home/pi/telegramMonitoring/startUp.sh)
 #
 

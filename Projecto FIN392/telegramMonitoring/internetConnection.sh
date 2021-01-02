@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #
-# Tasks to be done every minute
-#
 # EDITOR=nano crontab -e
 #
-#     # Tasks to be done every minute
-#     * * * * * (sudo /home/pi/telegramMonitoring/heartBeat.sh)
+#     (Add to beginning of file)
+#
+#     # telegramMonitoring: Check Internet connection every minute
+#     * * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)
 #
 
 # Path for telegramMonitoring
@@ -32,7 +32,3 @@ else
 		echo $datetime > $tMPath/noInternet
 	fi
 fi
-
-#
-# ...
-#

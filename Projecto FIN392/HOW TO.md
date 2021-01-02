@@ -248,22 +248,22 @@ Copy all files and folders from '*telegramMonitoring*' to '*\\[IP_WLAN]\telegram
 
     EDITOR=nano crontab -e
 
-        # Add to the end of the file
+        (Add to beginning of file)
 
-        # Tasks to be done at start up
+        # telegramMonitoring: Send initial message and start the bot listener
         @reboot (sudo /home/pi/telegramMonitoring/startUp.sh)
 
-        # Tasks to be done every minute
-        * * * * * (sudo /home/pi/telegramMonitoring/heartBeat.sh)
+        # telegramMonitoring: Check Internet connection every minute
+        * * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)
 
-        # Tasks to be done every 4 hours
-        0 */4 * * * (sudo /home/pi/telegramMonitoring/keepAlive.sh)
+        # telegramMonitoring: Send KEEPALIVE message every 4 hours
+        0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)
 
     sudo nano /home/pi/.bashrc
 
-        # Add to the end of the file
+        (Add to the end of the file)
 
-        # Tasks to be done on log in
+        # telegramMonitoring: Log in message
         /home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1
 
     sudo chmod a+rwx --recursive --verbose /home/pi/telegramMonitoring
@@ -354,29 +354,6 @@ Copy file 'printer.sh' to '\\[IP_WLAN]\telegramMonitoring\botCommands'
     sudo chmod a+rwx --recursive --verbose /home/pi/telegramMonitoring/botCommands/printer.sh
     sudo chown pi:pi --verbose --recursive /home/pi/telegramMonitoring/botCommands/printer.sh
 ```
-
-
-
-
-
----
-sudo lpstat -W completed -u $(getent passwd | awk -F: '{print $1}' | paste -sd ',')
-
-sudo strings /var/spool/cups/c00001 | grep -A 1 job-name
-
-
-
-
-cupsctl
-lpadmin 
-lpinfo 
-lp 
-lpr
-lpstat 
-lpoptions 
-lprm 
-lpq
-lpmove 
 
 
 
