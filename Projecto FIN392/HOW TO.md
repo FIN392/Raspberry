@@ -342,7 +342,9 @@ Select the model of your printer and click the '*Add Printer*'
 
 Configure the printer in your computer and print out a test page
 
-### Add '*/printer*' command to '*telegramMonitoring*'
+---
+### CHECK
+### Add '*/printer*' command and './spoolCheck.sh' script to '*telegramMonitoring*'
 
 *(From computer)*
 
@@ -354,7 +356,8 @@ Copy file 'printer.sh' to '\\[IP_WLAN]\telegramMonitoring\botCommands'
     sudo chmod a+rwx --recursive --verbose /home/pi/telegramMonitoring/botCommands/printer.sh
     sudo chown pi:pi --verbose --recursive /home/pi/telegramMonitoring/botCommands/printer.sh
 ```
-
+### CHECK
+---
 
 
 
