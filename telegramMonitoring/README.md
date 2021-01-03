@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/FIN392/Raspberry/main/telegramMonitoring/telegramMonitoring-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring-Logo.png)
 
 # telegramMonitoring:<br>How to mange your Raspberry Pi through Telegram?
 
@@ -63,7 +63,7 @@ rm -r ~/telegramMonitoring
 mkdir ~/telegramMonitoring
 cd ~/Downloads
 rm telegramMonitoring.tar.gz
-wget -v https://github.com/FIN392/Raspberry_management_via_Telegram/raw/main/telegramMonitoring.tar.gz
+wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf ~/Downloads/telegramMonitoring.tar.gz -C ~/
 sudo chmod a+rwx ~/telegramMonitoring
 ```
