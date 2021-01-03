@@ -1,4 +1,4 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/My_Raspberry_installation/Raspberry-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/images/Raspberry-Logo.png)
 
 # My Raspberry installation:<br>How I install my Raspberry Pi?
 
