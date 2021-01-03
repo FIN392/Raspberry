@@ -67,11 +67,15 @@ wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegram
 tar -xzvf ~/Downloads/telegramMonitoring.tar.gz -C ~/
 sudo chmod a+rwx ~/telegramMonitoring
 ```
+
 Install jq (command-line JSON processor).
+
 ```
 sudo apt install jq
 ```
+
 Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
+
 ```
 sudo nano /home/pi/telegramMonitoring/telegramInfo.sh
 
@@ -81,7 +85,9 @@ sudo nano /home/pi/telegramMonitoring/telegramInfo.sh
     # ID for Telegram user account
     telegramId="[Telegram ID]"
 ```
+
 Add the following lines at the beginning of '*crontab*'.
+
 ```
 EDITOR=nano crontab -e
 
@@ -94,7 +100,9 @@ EDITOR=nano crontab -e
     # telegramMonitoring: Send KEEPALIVE message every 4 hours
     0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)
 ```
+
 Add the following lines at the end of '*/home/pi/.bashrc*'.
+
 ```
 sudo nano /home/pi/.bashrc
 
@@ -105,6 +113,7 @@ sudo nano /home/pi/.bashrc
 ## <a name="test"></a>Test the commands
 
 Reboot the Raspberry. You will get the following messages via telegram:
+
 ```
 ✨
 Raspberry started!
@@ -112,7 +121,9 @@ Raspberry started!
 👍
 Listener is ON. Use /help to see the available commands
 ```
+
 Send '*/help*' to the bot, you will get the list of available commands:
+
 ```
 ℹ️
 Available commands:
@@ -125,6 +136,7 @@ Show CPU and GPU temperature   : /temperature
 Shows the time up              : /uptime
 List of logged in users        : /users
 ```
+
 Send the different commands and check the results
 
 ## <a name="more"></a>How to add your own bot commands
@@ -132,6 +144,7 @@ Send the different commands and check the results
 To add more commands just add a new script in the directory '*~/telegramMonitoring/botCommands*'.
 
 The script should follow this tempate:
+
 ```
 #!/bin/bash
 
@@ -145,5 +158,8 @@ echo "%E2%9A%99" # 'UTF-8 Hex Bytes' code of any icon (https://www.iemoji.com/)
 # The message is sent using a monospaced font, so you can format the output as you like
 #
 ```
+
 Be sure to secure the script with:
+
 ```sudo chmod a+wrx ~/telegramMonitoring/botCommands/{script name}.sh```
+---
