@@ -28,8 +28,8 @@ Please, send me your comments, critics, doubts, requests or sues, as well as any
 
 ## Requirements
 
-1. [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
-2. [Telegram](https://telegram.org). You should have an active Telegram account.
+- [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
+- [Telegram](https://telegram.org). You should have an active Telegram account.
 
 ## Steps
 
