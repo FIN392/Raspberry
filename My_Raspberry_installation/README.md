@@ -97,10 +97,32 @@ sudo apt upgrade
 sudo apt update
 sudo apt full-upgrade
 
-sudo apt install xrdp # Required for the remote desktop access
+sudo apt install xrdp # Software required for RDP access
+
+sudo apt install samba samba-common -y # Software required for access via file browser (Explorer, Finder or Nautilus)
+# Select 'NO' to modify 'smb.conf'
+
+sudo nano /etc/samba/smb.conf
+
+    # Add to the end of the file
+
+    [pi]
+    comment = pi folder
+    path = /home/pi
+    browseable = Yes
+    writeable = Yes
+    only guest = no
+    create mask = 0777
+    directory mask = 0777
+    public = no
+
+sudo smbpasswd -a pi
+# Type twice password for 'pi'
+
+sudo service smbd restart
 ```
 
-Check the RDP remote connection from a computer.
+Check the RDP and SMB connections from a computer.
 
 ## <a name="lan"></a>Setup LAN connection
 
