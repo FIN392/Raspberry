@@ -1,23 +1,31 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/My_Raspberry_installation/RaspberryMe.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/My_Raspberry_installation/Raspberry-Logo.png)
 
 # My Raspberry installation:<br>How I install my Raspberry Pi?
 
-The goal is to ... .
+The goal is to ... I'm working on it.
 
-Please, send me your comments, critics, doubts, requests or sues, as well as any additional command you create
+Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
 
-1. [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure)
-2. [Telegram](https://telegram.org). You should have an active Telegram account
+1. aaa ...
+2. bbb ...
+3. ccc ...
 
 ## Steps
 
-1. [Create a Telegram bot](#bot)
-2. [Installation of '*telegramMonitoring*'](#installation)
-3. [Test the commands](#test)
-4. [How to add your own bot commands](#more)
+1. ...[aaa](#aaa)
+2. ...[bbb](#bbb)
+3. ...[ccc](#ccc)
 
-## <a name="bot"></a>Create a Telegram bot
+## <a name="aaa"></a>aaa
 
-Do...
+aaa ...
+
+## <a name="bbb"></a>bbb
+
+bbb ...
+
+## <a name="ccc"></a>ccc
+
+ccc ...
