@@ -1,4 +1,4 @@
-![Logo](/Raspberry/telegramMonitoring/images/Logo.png)
+![Logo](telegramMonitoring/images/Logo.png)
 
 # How to mange your Raspberry Pi through Telegram?
 
