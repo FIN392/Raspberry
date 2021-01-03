@@ -38,11 +38,54 @@ I use the following hardware, so other options might involve slight differences:
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
-xxx ...
+*(From computer)*
+
+Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
+
+Insert the SD into a card reader.
+
+Launch Raspberry Pi Imager.
+
+Choose SD card and choose OS '*Raspberry Pi OS (32-bit)*'.
+
+Click on '*WRITE*'.
 
 ## <a name="startup"></a>First startup and configuration
 
-xxx ...
+*(From the Raspberry Pi)*
+
+Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
+
+Insert the SD card and turn Raspberry Pi on.
+
+Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window ((later referred to as *[DHCP_address]*).
+
+Set country config as follow:
+- Country: Spain
+- Language: European Spanish
+- Timezone: Madrid
+- Use English language: Yes
+- Use US keyboard: No
+
+Change password for the '*pi*' user account.
+
+Check '*This screen shows a black border around the desktop*' if required.
+
+Skip the '*Select WiFi Network*' window.
+
+Skip the '*Update Software*' window.
+
+Click on '*Restart*'.
+
+Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*'.
+
+In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
+
+*(From computer)*
+
+Access via SSH: ```ssh pi@[DHCP_address]```
+* '*[DHCP_address]*' is the IP address from of the '*Welcome to Raspberry Pi*' window
+* In Windows, if the message '*WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!*' is shown then delete file '*C:\Users\%USERNAME%\.ssh\known_hosts*'
 
 ## <a name="update"></a>OS update and base software installation
 
