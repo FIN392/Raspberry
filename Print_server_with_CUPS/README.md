@@ -1,4 +1,4 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/Print_server_with_CUPS/CUPS-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/images/CUPS-Logo.png)
 
 # Print server with CUPS
 
