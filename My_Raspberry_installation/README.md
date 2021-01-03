@@ -16,7 +16,7 @@ Please, send me your comments, critics, doubts, requests or sues.
 	- Default gateway IP. Typically it is the IP address of the router (later referred to as *[IP_Gateway]*).
 	- Network mask bits. Typically is '/24' (later referred to as *[Mask_bits]*).
 - If you want to connect wireless, you will need also:
-	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity.
+	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity).
 	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
 	- One additional static local IP address (later referred to as *[IP_WLAN]*).
 - A computer (Windows, MacOS or Linux) will be required for the SD card preparation.
@@ -32,10 +32,10 @@ I use the following hardware, so other options might involve slight differences:
 
 1. [Burn Raspberry Pi OS to SD card](#sd).
 2. [First startup and configuration](#startup).
-3. [OS update and base software installation](#update)
-4. [Setup LAN connection](#lan)
-5. [Setup WiFi connection](#wifi)
-6. [Reboot and checks](#checks)
+3. [OS update and base software installation](#update).
+4. [Setup LAN connection](#lan).
+5. [Setup WiFi connection](#wifi).
+6. [Reboot and checks](#checks).
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
@@ -84,75 +84,75 @@ In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
 Check SSH remote connection from a computer.
 
-**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
+>**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
 
 ## <a name="update"></a>OS update and base software installation
 
 *(From a SSH remote connection)*
 
 ```
-    sudo apt install rpi-update
-    sudo apt autoremove
-    sudo apt upgrade
-    sudo apt update
-    sudo apt full-upgrade
+sudo apt install rpi-update
+sudo apt autoremove
+sudo apt upgrade
+sudo apt update
+sudo apt full-upgrade
 
-    sudo apt install xrdp # Required for the remote desktop access
+sudo apt install xrdp # Required for the remote desktop access
 ```
 
-Check RDP remote connection from a computer.
+Check the RDP remote connection from a computer.
 
 ## <a name="lan"></a>Setup LAN connection
 
 *(From a SSH remote connection)*
 
 ```
-    sudo nano /etc/dhcpcd.conf
+sudo nano /etc/dhcpcd.conf
 
-        # Add to the end of the file
+    # Add to the end of the file
 
-        interface eth0
-        static ip_address=[IP_LAN]/[Mask_bits]
-        static routers=[IP_Gateway]
-        static domain_name_servers=1.1.1.1
+    interface eth0
+    static ip_address=[IP_LAN]/[Mask_bits]
+    static routers=[IP_Gateway]
+    static domain_name_servers=1.1.1.1
 
-    sudo nano /etc/resolv.conf
+sudo nano /etc/resolv.conf
 
-        # Replace all content with this line
+    # Replace all content with this line
 
-        nameserver 1.1.1.1
+    nameserver 1.1.1.1
 ```
 
 ## <a name="wifi"></a>Setup WiFi connection
 
-**NOTE: This step might be different if you are using another USB WiFi dongle or the internal wireless interface.**
+>**NOTE: This step might be different if you are using another USB WiFi dongle or the internal wireless interface.**
 
 *(From a SSH remote connection)*
 
 ```
-    sudo wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
-    sudo chmod +x /usr/bin/install-wifi
-    sudo install-wifi
-	
-	sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
+sudo chmod +x /usr/bin/install-wifi
+sudo install-wifi
 
-        # Replace all content with these lines
-        
-        ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-        #ap_scan=1
-        update_config=1
-        country=ES
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
-    wpa_passphrase "[WIFI_SSID]" "[WIFI_Password]" | grep -v "#psk=" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+    # Replace all content with these lines
+    
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    #ap_scan=1
+    update_config=1
+    country=ES
 
-    sudo nano /etc/dhcpcd.conf
+wpa_passphrase "[WIFI_SSID]" "[WIFI_Password]" | grep -v "#psk=" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 
-        # Add to the end of the file
+sudo nano /etc/dhcpcd.conf
 
-        interface wlan0
-        static ip_address=[IP_WLAN]/[Mask_bits]
-        static routers=[IP_Gateway]
-        static domain_name_servers=1.1.1.1
+    # Add to the end of the file
+
+    interface wlan0
+    static ip_address=[IP_WLAN]/[Mask_bits]
+    static routers=[IP_Gateway]
+    static domain_name_servers=1.1.1.1
 ```
 
 ## <a name="checks"></a>Reboot and checks
@@ -160,7 +160,8 @@ Check RDP remote connection from a computer.
 *(From a SSH remote connection)*
 
 ```
-    sudo reboot
+sudo reboot
 ```
 
-Once up again i would suggest to unplug the LAN cable and verify SSH and RDP accesses.
+Once started again, disconnect the LAN cable and check the SSH and RDP accesses.
+---
