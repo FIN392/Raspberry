@@ -19,6 +19,7 @@ Please, send me your comments, critics, doubts, requests or sues.
 	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity.
 	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
 	- One additional static local IP address (later referred to as *[IP_WLAN]*).
+- A computer (Windows, MacOS or Linux) will be required for the SD card preparation.
 
 ## My hardware
 
@@ -38,7 +39,7 @@ I use the following hardware, so other options might involve slight differences:
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
-*(From computer)*
+*(From a computer)*
 
 Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
@@ -58,7 +59,7 @@ Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
 
 Insert the SD card and turn Raspberry Pi on.
 
-Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window ((later referred to as *[DHCP_address]*).
+Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
 
 Set country config as follow:
 - Country: Spain
@@ -81,23 +82,72 @@ Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*
 
 In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
-*(From computer)*
-
-Access via SSH: ```ssh pi@[DHCP_address]```
-* '*[DHCP_address]*' is the IP address from of the '*Welcome to Raspberry Pi*' window
-* In Windows, if the message '*WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!*' is shown then delete file '*C:\Users\%USERNAME%\.ssh\known_hosts*'
+*NOTE: From now and on monitor, keyboard and mouse connected to the Raspberry will not be necesary*
 
 ## <a name="update"></a>OS update and base software installation
 
-xxx ...
+*(From a SSH remote connection)*
+
+```
+    sudo apt install rpi-update
+    sudo apt autoremove
+    sudo apt upgrade
+    sudo apt update
+    sudo apt full-upgrade
+
+    sudo apt install xrdp # Required for the remote desktop access
+```
 
 ## <a name="lan"></a>Setup LAN connection
 
-xxx ...
+*(From a SSH remote connection)*
+
+```
+    sudo nano /etc/dhcpcd.conf
+
+        # Add to the end of the file
+
+        interface eth0
+        static ip_address=[IP_LAN]/[Mask_bits]
+        static routers=[IP_Gateway]
+        static domain_name_servers=1.1.1.1
+
+    sudo nano /etc/resolv.conf
+
+        # Replace all the content
+
+        nameserver 1.1.1.1
+```
 
 ## <a name="wifi"></a>Setup WiFi connection
 
-xxx ...
+*(From a SSH remote connection)*
+
+```
+    sudo wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
+    sudo chmod +x /usr/bin/install-wifi
+    sudo install-wifi
+	
+	sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+        # Replace all the content
+        
+        ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+        #ap_scan=1
+        update_config=1
+        country=ES
+
+    wpa_passphrase "[WIFI_SSID]" "[WIFI_Password]" | grep -v "#psk=" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+
+    sudo nano /etc/dhcpcd.conf
+
+        # Add to the end of the file
+
+        interface wlan0
+        static ip_address=[IP_WLAN]/[Mask_bits]
+        static routers=[IP_Gateway]
+        static domain_name_servers=1.1.1.1
+```
 
 ## <a name="checks"></a>Reboot and checks
 
