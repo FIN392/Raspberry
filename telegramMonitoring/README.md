@@ -7,36 +7,36 @@ The goal is to do a basic management of a Raspberry via telegram.
 What can you do?
 
 1. You will get a Telegram message...
-- ...each time the Raspberry is started
-- ...each time an user log in
-- ...each time the Internet connection is recovered after an outage
-- ...every 4 hours just to inform that it's still alive
+- ...each time the Raspberry is started.
+- ...each time an user log in.
+- ...each time the Internet connection is recovered after an outage.
+- ...every 4 hours just to inform that it's still alive.
 
 2. You will be able to ask for the following information:
-- Last time the Raspberry was down
-- Hardware (CPU, memory, disk, USB devices, etc.)
-- IP addresses
-- CPU and GPU temperature
-- How long has it been on
-- List of logged in users
+- Last time the Raspberry was down.
+- Hardware (CPU, memory, disk, USB devices, etc.).
+- IP addresses.
+- CPU and GPU temperature.
+- How long has it been on.
+- List of logged in users.
 
-3. You will be able of reboot the Raspberry
+3. You will be able of reboot the Raspberry.
 
-In addition, you could add more commands (eg: send a photo, print a file, check network devices, etc.)
+In addition, you could add more commands (eg: send a photo, print a file, check network devices, etc.).
 
-Please, send me your comments, critics, doubts, requests or sues, as well as any additional command you create
+Please, send me your comments, critics, doubts, requests or sues, as well as any additional command you create.
 
 ## Requirements
 
-1. [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure)
-2. [Telegram](https://telegram.org). You should have an active Telegram account
+1. [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
+2. [Telegram](https://telegram.org). You should have an active Telegram account.
 
 ## Steps
 
-1. [Create a Telegram bot](#bot)
-2. [Installation of '*telegramMonitoring*'](#installation)
-3. [Test the commands](#test)
-4. [How to add your own bot commands](#more)
+1. [Create a Telegram bot](#bot).
+2. [Installation of '*telegramMonitoring*'](#installation).
+3. [Test the commands](#test).
+4. [How to add your own bot commands](#more).
 
 ## <a name="bot"></a>Create a Telegram bot
 
@@ -67,11 +67,11 @@ wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegram
 tar -xzvf ~/Downloads/telegramMonitoring.tar.gz -C ~/
 sudo chmod a+rwx ~/telegramMonitoring
 ```
-Install jq (command-line JSON processor)
+Install jq (command-line JSON processor).
 ```
 sudo apt install jq
 ```
-Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user
+Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
 ```
 sudo nano /home/pi/telegramMonitoring/telegramInfo.sh
 
@@ -81,7 +81,7 @@ sudo nano /home/pi/telegramMonitoring/telegramInfo.sh
     # ID for Telegram user account
     telegramId="[Telegram ID]"
 ```
-Add the following lines at the beginning of '*crontab*'
+Add the following lines at the beginning of '*crontab*'.
 ```
 EDITOR=nano crontab -e
 
@@ -94,7 +94,7 @@ EDITOR=nano crontab -e
     # telegramMonitoring: Send KEEPALIVE message every 4 hours
     0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)
 ```
-Add the following lines at the end of '*/home/pi/.bashrc*'
+Add the following lines at the end of '*/home/pi/.bashrc*'.
 ```
 sudo nano /home/pi/.bashrc
 
@@ -129,7 +129,7 @@ Send the different commands and check the results
 
 ## <a name="more"></a>How to add your own bot commands
 
-To add more commands just add a new script in the directory '*~/telegramMonitoring/botCommands*'
+To add more commands just add a new script in the directory '*~/telegramMonitoring/botCommands*'.
 
 The script should follow this tempate:
 ```
