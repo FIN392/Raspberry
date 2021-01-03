@@ -8,14 +8,14 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
 
-1. Raspberry Pi.
-2. SD Card (*4 GB or more*).
-4. Internet access.
-5. Home network details:
+- Raspberry Pi.
+- SD Card (*4 GB or more*).
+- Internet access.
+- Home network details:
 	- One static local IP address (later referred to as *[IP_LAN]*).
 	- Default gateway IP. Typically it is the IP address of the router (later referred to as *[IP_Gateway]*).
 	- Network mask bits. Typically is '/24' (later referred to as *[Mask_bits]*).
-6. If you want to connect wireless, you will need also:
+- If you want to connect wireless, you will need also:
 	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity.
 	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
 	- One additional static local IP address (later referred to as *[IP_WLAN]*).
@@ -29,18 +29,33 @@ I use the following hardware, so other options might involve slight differences:
 
 ## Steps
 
-1. ...[aaa](#aaa)
-2. ...[bbb](#bbb)
-3. ...[ccc](#ccc)
+1. [Burn Raspberry Pi OS to SD card](#sd).
+2. [First startup and configuration](#startup).
+3. [OS update and base software installation](#update)
+4. [Setup LAN connection](#lan)
+5. [Setup WiFi connection](#wifi)
+6. [Reboot and checks](#checks)
 
-## <a name="aaa"></a>aaa
+## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
-aaa ...
+xxx ...
 
-## <a name="bbb"></a>bbb
+## <a name="startup"></a>First startup and configuration
 
-bbb ...
+xxx ...
 
-## <a name="ccc"></a>ccc
+## <a name="update"></a>OS update and base software installation
 
-ccc ...
+xxx ...
+
+## <a name="lan"></a>Setup LAN connection
+
+xxx ...
+
+## <a name="wifi"></a>Setup WiFi connection
+
+xxx ...
+
+## <a name="checks"></a>Reboot and checks
+
+xxx ...
