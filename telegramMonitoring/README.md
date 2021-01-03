@@ -57,7 +57,8 @@ Do the following steps from Telegram:
 
 ## <a name="installation"></a>Installation of '*telegramMonitoring*'
 
-Open '*terminal*' (or remote a SSH session) and type the following commnads:
+*(From a SSH remote connection)*
+
 ```
 rm -r ~/telegramMonitoring
 mkdir ~/telegramMonitoring
