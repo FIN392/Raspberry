@@ -82,7 +82,9 @@ Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*
 
 In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
-*NOTE: From now and on monitor, keyboard and mouse connected to the Raspberry will not be necesary*
+Check SSH remote connection from a computer.
+
+**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
 
 ## <a name="update"></a>OS update and base software installation
 
@@ -97,6 +99,8 @@ In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
     sudo apt install xrdp # Required for the remote desktop access
 ```
+
+Check RDP remote connection from a computer.
 
 ## <a name="lan"></a>Setup LAN connection
 
@@ -114,12 +118,14 @@ In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
     sudo nano /etc/resolv.conf
 
-        # Replace all the content
+        # Replace all content with this line
 
         nameserver 1.1.1.1
 ```
 
 ## <a name="wifi"></a>Setup WiFi connection
+
+**NOTE: This step might be different if you are using another USB WiFi dongle or the internal wireless interface.**
 
 *(From a SSH remote connection)*
 
@@ -130,7 +136,7 @@ In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 	
 	sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
-        # Replace all the content
+        # Replace all content with these lines
         
         ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
         #ap_scan=1
@@ -151,4 +157,10 @@ In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
 
 ## <a name="checks"></a>Reboot and checks
 
-xxx ...
+*(From a SSH remote connection)*
+
+```
+    sudo reboot
+```
+
+Once up again i would suggest to unplug the LAN cable and verify SSH and RDP accesses.
