@@ -162,4 +162,5 @@ echo "%E2%9A%99" # 'UTF-8 Hex Bytes' code of any icon (https://www.iemoji.com/)
 Be sure to secure the script with:
 
 ```sudo chmod a+wrx ~/telegramMonitoring/botCommands/{script name}.sh```
+
 ---
