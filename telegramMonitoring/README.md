@@ -1,6 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/FIN392/Raspberry/main/telegramMonitoring/images/Logo.png)
 
-# How to mange your Raspberry Pi through Telegram?
+# telegramMonitoring: How to mange your Raspberry Pi through Telegram?
 
 The goal is to do a basic management of a Raspberry via telegram.
 
