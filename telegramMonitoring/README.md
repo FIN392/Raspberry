@@ -1,4 +1,4 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/images/telegramMonitoring-Logo.png)
 
 # telegramMonitoring:<br>How to mange your Raspberry Pi through Telegram?
 
