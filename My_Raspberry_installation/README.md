@@ -186,4 +186,5 @@ sudo reboot
 ```
 
 Once started again, disconnect the LAN cable and check the SSH and RDP accesses.
+
 ---
