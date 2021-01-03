@@ -1,4 +1,4 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/CCTV_with_motionEye/motionEye-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/images/motionEye-Logo.png)
 
 # CCTV with motionEye
 
