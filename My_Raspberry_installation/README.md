@@ -35,7 +35,7 @@ I use the following hardware, so other options might involve slight differences:
 3. [OS update and base software installation](#update).
 4. [Setup LAN connection](#lan).
 5. [Setup WiFi connection](#wifi).
-6. [Reboot and checks](#checks).
+6. [Reboot, checks and backup](#checks).
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
@@ -47,7 +47,9 @@ Insert the SD into a card reader.
 
 Launch Raspberry Pi Imager.
 
-Choose SD card and choose OS '*Raspberry Pi OS (32-bit)*'.
+Click on 'Choose SD card' and select the correct SD card unit.
+
+Click on 'Choose OS' and select '*Raspberry Pi OS (32-bit)*'.
 
 Click on '*WRITE*'.
 
@@ -177,7 +179,7 @@ sudo nano /etc/dhcpcd.conf
     static domain_name_servers=1.1.1.1
 ```
 
-## <a name="checks"></a>Reboot and checks
+## <a name="checks"></a>Reboot, checks and backup
 
 *(From a SSH remote connection)*
 
