@@ -19,7 +19,7 @@ Please, send me your comments, critics, doubts, requests or sues.
 	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity).
 	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
 	- One additional static local IP address (later referred to as *[IP_WLAN]*).
-- A computer (Windows, MacOS or Linux) will be required for the SD card preparation.
+- A computer (Windows, MacOS or Linux) will be required for the SD card preparation and, optionally, to manage the Raspberry remotely.
 
 ## My hardware
 
@@ -81,7 +81,7 @@ Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*
 		- '*Locale*': '*en (English)*' / '*US (United States)*' / '*UTF-8*'.
 		- '*Timezone*': '*Europe*' / '*Madrid*'.
 		- '*Keyboard*': '*Dell USB Multimedia*' / '*Spanish*' / '*Spanish (Win keys)*'.
-		- '*WiFi Country*': '*ES*'.
+		- '*WiFi Country*': '*ES Spain*'.
 
 Reboot once again.
 
@@ -92,58 +92,104 @@ Reboot once again.
 *(From a SSH remote connection)*
 
 ```
-sudo apt install rpi-update
-sudo apt autoremove
-sudo apt upgrade
-sudo apt update
-sudo apt full-upgrade
+# Everything is easy as ROOT (I AM gROOT)
+sudo -i
 
-sudo apt install xrdp # Software required for RDP access
+# Upgrade and update everything
+apt install rpi-update -y
+apt autoremove -y
+apt upgrade -y
+apt update -y
+apt full-upgrade -y
 
-sudo apt install samba samba-common -y # Software required for access via file browser (Explorer, Finder or Nautilus)
-# Select 'NO' to modify 'smb.conf'
+# Install XRDP. Required for RDP access
+apt install xrdp -y
 
-sudo nano /etc/samba/smb.conf
+# Install SAMBA. Required for access via file browser (Explorer, Finder or Nautilus)
+echo "samba-common samba-common/workgroup string  WORKGROUP" | debconf-set-selections
+echo "samba-common samba-common/dhcp boolean true" | debconf-set-selections
+echo "samba-common samba-common/do_debconf boolean true" | debconf-set-selections
+apt install samba -y
 
-    # Add to the end of the file
+# SAMBA configuration
+echo "" >> /etc/samba/smb.conf
+echo "########################################" >> /etc/samba/smb.conf
+echo "#" >> /etc/samba/smb.conf
+echo "# Share definition for '/home/pi'" >> /etc/samba/smb.conf
+echo "#" >> /etc/samba/smb.conf
+echo "# $(date)" >> /etc/samba/smb.conf
+echo "#" >> /etc/samba/smb.conf
+echo "[pi]" >> /etc/samba/smb.conf
+echo "   comment = pi folder" >> /etc/samba/smb.conf
+echo "   path = /home/pi" >> /etc/samba/smb.conf
+echo "   browseable = Yes" >> /etc/samba/smb.conf
+echo "   writeable = Yes" >> /etc/samba/smb.conf
+echo "   only guest = no" >> /etc/samba/smb.conf
+echo "   create mask = 0777" >> /etc/samba/smb.conf
+echo "   directory mask = 0777" >> /etc/samba/smb.conf
+echo "   public = no" >> /etc/samba/smb.conf
+echo "#" >> /etc/samba/smb.conf
+echo "########################################" >> /etc/samba/smb.conf
+echo "" >> /etc/samba/smb.conf
 
-    [pi]
-    comment = pi folder
-    path = /home/pi
-    browseable = Yes
-    writeable = Yes
-    only guest = no
-    create mask = 0777
-    directory mask = 0777
-    public = no
-
-sudo smbpasswd -a pi
+# User pi to SAMBA users list
+smbpasswd -a pi
 # Type twice password for 'pi'
 
-sudo service smbd restart
+# Restart SAMBA
+service smbd restart
+
+# Exit from sudo
+exit
 ```
 
-Check the RDP and SMB connections from a computer.
+Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 
 ## <a name="lan"></a>Setup LAN connection
 
 *(From a SSH remote connection)*
 
 ```
-sudo nano /etc/dhcpcd.conf
+# Everything is easy as ROOT (I AM gROOT)
+sudo -i
 
-    # Add to the end of the file
+# ATTENTION!! Before copy&paste, replace [IP_LAN], [Mask_bits] and [IP_Gateway] by their values
+IP_LAN=[IP_LAN]
+Mask_bits=[Mask_bits]
+IP_Gateway=[IP_Gateway]
 
-    interface eth0
-    static ip_address=[IP_LAN]/[Mask_bits]
-    static routers=[IP_Gateway]
-    static domain_name_servers=1.1.1.1
+# Static IP configuration for 'eth0'
+echo "" >> /etc/dhcpcd.conf
+echo "########################################" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "# Static IP configuration for 'eth0'" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "# $(date)" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "interface eth0" >> /etc/dhcpcd.conf
+echo "static ip_address=$IP_LAN/$Mask_bits" >> /etc/dhcpcd.conf
+echo "static routers=$IP_Gateway" >> /etc/dhcpcd.conf
+echo "static domain_name_servers=1.1.1.1" >> /etc/dhcpcd.conf
+echo "#" >> /etc/samba/dhcpcd.conf
+echo "########################################" >> /etc/dhcpcd.conf
+echo "" >> /etc/dhcpcd.conf
 
-sudo nano /etc/resolv.conf
+# Set 1.1.1.1 (Cloudflare) as DNS
+rm /etc/resolv.conf
+echo "" >> /etc/resolv.conf
+echo "########################################" >> /etc/resolv.conf
+echo "#" >> /etc/resolv.conf
+echo "# Set 1.1.1.1 (Cloudflare) as DNS" >> /etc/resolv.conf
+echo "#" >> /etc/resolv.conf
+echo "# $(date)" >> /etc/resolv.conf
+echo "#" >> /etc/resolv.conf
+echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+echo "#" >> /etc/samba/resolv.conf
+echo "########################################" >> /etc/resolv.conf
+echo "" >> /etc/resolv.conf
 
-    # Replace all content with this line
-
-    nameserver 1.1.1.1
+# Exit from sudo
+exit
 ```
 
 ## <a name="wifi"></a>Setup WiFi connection
@@ -153,29 +199,70 @@ sudo nano /etc/resolv.conf
 *(From a SSH remote connection)*
 
 ```
-sudo wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
-sudo chmod +x /usr/bin/install-wifi
-sudo install-wifi
+# Everything is easy as ROOT (I AM gROOT)
+sudo -i
 
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+# Install driver for TP-Link USB WiFi Adapter TL-WN725N
+wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
+chmod +x /usr/bin/install-wifi
+install-wifi
 
-    # Replace all content with these lines
-    
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    #ap_scan=1
-    update_config=1
-    country=ES
+# Wireless configuration
+rm /etc/wpa_supplicant/wpa_supplicant.conf
+echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "# Wireless configuration" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "# $(date)" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "update_config=1" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "country=ES" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/samba/wpa_supplicant/wpa_supplicant.conf
+echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
-wpa_passphrase "[WIFI_SSID]" "[WIFI_Password]" | grep -v "#psk=" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+# ATTENTION!! Before copy&paste, replace [WIFI_SSID] and [WIFI_Password] by their values
+WIFI_SSID=[WIFI_SSID]
+WIFI_Password=[WIFI_Password]
 
-sudo nano /etc/dhcpcd.conf
+# Set SSID and password
+echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "# Set SSID and password" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "# $(date)" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_passphrase "$WIFI_SSID" "$WIFI_Password" | grep -v "#psk=" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
-    # Add to the end of the file
+# ATTENTION!! Before copy&paste, replace [IP_WLAN], [Mask_bits] and [IP_Gateway] by their values
+IP_WLAN=[IP_WLAN]
+Mask_bits=[Mask_bits]
+IP_Gateway=[IP_Gateway]
 
-    interface wlan0
-    static ip_address=[IP_WLAN]/[Mask_bits]
-    static routers=[IP_Gateway]
-    static domain_name_servers=1.1.1.1
+# Static IP configuration for 'wlan0'
+echo "" >> /etc/dhcpcd.conf
+echo "########################################" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "# Static IP configuration for 'wlan0'" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "# $(date)" >> /etc/dhcpcd.conf
+echo "#" >> /etc/dhcpcd.conf
+echo "interface wlan0" >> /etc/dhcpcd.conf
+echo "static ip_address=$IP_WLAN/$Mask_bits" >> /etc/dhcpcd.conf
+echo "static routers=$IP_Gateway" >> /etc/dhcpcd.conf
+echo "static domain_name_servers=1.1.1.1" >> /etc/dhcpcd.conf
+echo "#" >> /etc/samba/dhcpcd.conf
+echo "########################################" >> /etc/dhcpcd.conf
+echo "" >> /etc/dhcpcd.conf
+
+# Exit from sudo
+exit
 ```
 
 ## <a name="checks"></a>Reboot, checks and backup
@@ -186,6 +273,6 @@ sudo nano /etc/dhcpcd.conf
 sudo reboot
 ```
 
-Once started again, disconnect the LAN cable and check the SSH and RDP accesses.
+Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and then disconnect the LAN cable and check again with the IP [IP_WLAN].
 
 ---
