@@ -63,28 +63,27 @@ Insert the SD card and turn Raspberry Pi on.
 
 Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
 
-Set country config as follow:
-- Country: Spain
-- Language: European Spanish
-- Timezone: Madrid
-- Use English language: Yes
-- Use US keyboard: No
-
-Change password for the '*pi*' user account.
-
-Check '*This screen shows a black border around the desktop*' if required.
-
-Skip the '*Select WiFi Network*' window.
-
-Skip the '*Update Software*' window.
-
-Click on '*Restart*'.
+Follow the initial configuration windows and choose 'Restart' at the end.
 
 Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*'.
 
-In tab '*Interfaces*', check '*Enable*' for '*SSH*'.
+- Tab '*System*':
+	- Click on '*Change Password...*' and change the password for user '*pi*' (it is more secure).
+	- Change '*Hostname*' (For example, 'RB1').
+	- Keep '*Boot*' as '*To Desktop*' (CLI is only for geeks ;-D).
+	- Change '*Auto login*' to '*Disabled*' (it is more secure).
+	- Keep '*Network at Boot*' as '*Do not wait*' (better when network fail).
+	- Keep '*Splash Screen*' as '*Enable*' (just because I like it).
+- Tab 'Interfaces':
+	- Set '*SSH*' as '*Enable*'. I hate to have HMDI monitor, keyboard y mouse cables conneted, so I work using SSH and RDP.
+- Tab 'Location':
+	- Check and/or change '*Locale*', '*Timezone*', '*Keyboard*' and '*WiFi Country*'. This are my options:
+		- '*Locale*': '*en (English)*' / '*US (United States)*' / '*UTF-8*'.
+		- '*Timezone*': '*Europe*' / '*Madrid*'.
+		- '*Keyboard*': '*Dell USB Multimedia*' / '*Spanish*' / '*Spanish (Win keys)*'.
+		- '*WiFi Country*': '*ES*'.
 
-Check SSH remote connection from a computer.
+Reboot once again.
 
 >**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
 
