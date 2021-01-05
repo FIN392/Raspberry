@@ -153,7 +153,7 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 # Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
-# ATTENTION!! Before copy&paste, replace [IP_LAN], [Mask_bits] and [IP_Gateway] by their values
+# ATTENTION!! Before copy&paste this section, replace [variable] by their value
 IP_LAN=[IP_LAN]
 Mask_bits=[Mask_bits]
 IP_Gateway=[IP_Gateway]
@@ -202,14 +202,17 @@ exit
 # Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
+# ATTENTION!! Before copy&paste this section, replace [variable] by their value
+IP_WLAN=[IP_WLAN]
+Mask_bits=[Mask_bits]
+IP_Gateway=[IP_Gateway]
+WIFI_SSID=[WIFI_SSID]
+WIFI_Password=[WIFI_Password]
+
 # Install driver for TP-Link USB WiFi Adapter TL-WN725N
 wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
 chmod +x /usr/bin/install-wifi
 install-wifi
-
-# ATTENTION!! Before copy&paste, replace [WIFI_SSID] and [WIFI_Password] by their values
-WIFI_SSID=[WIFI_SSID]
-WIFI_Password=[WIFI_Password]
 
 # Wireless configuration
 rm /etc/wpa_supplicant/wpa_supplicant.conf
@@ -227,11 +230,6 @@ wpa_passphrase "$WIFI_SSID" "$WIFI_Password" | grep -v "#psk=" >> /etc/wpa_suppl
 echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
-
-# ATTENTION!! Before copy&paste, replace [IP_WLAN], [Mask_bits] and [IP_Gateway] by their values
-IP_WLAN=[IP_WLAN]
-Mask_bits=[Mask_bits]
-IP_Gateway=[IP_Gateway]
 
 # Static IP configuration for 'wlan0'
 echo "" >> /etc/dhcpcd.conf
