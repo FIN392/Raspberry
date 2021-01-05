@@ -113,14 +113,20 @@ echo "" >> /home/pi/.bashrc
 # Add taks to 'cron'.
 crontabTasks=$( \
     echo "" ; \
+    echo "########################################" ; \
+    echo "#" ; \
+    echo "# telegramMonitoring: Tasks" ; \
+    echo "#" ; \
+    echo "# $(date)" ; \
+    echo "#" ; \
     echo "# telegramMonitoring: Send initial message and start the bot listener" ; \
     echo "@reboot (sudo /home/pi/telegramMonitoring/startUp.sh)" ; \
-    echo "" ; \
     echo "# telegramMonitoring: Check Internet connection every minute" ; \
     echo "* * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)" ; \
-    echo "" ; \
     echo "# telegramMonitoring: Send KEEPALIVE message every 4 hours" ; \
     echo "0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
+    echo "#" ; \
+    echo "########################################" ; \
     echo "" ; \
 ) 
 (crontab -u pi -l 2>/dev/null; echo "$crontabTasks") | crontab -u pi -
