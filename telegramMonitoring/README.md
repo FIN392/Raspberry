@@ -64,16 +64,21 @@ Do the following steps from Telegram:
 sudo -i
 
 # Install telegramMonitoring
-rm -r ~/telegramMonitoring
-mkdir ~/telegramMonitoring
-cd ~/Downloads
+rm -r /home/pi/telegramMonitoring
+mkdir /home/pi/telegramMonitoring
+cd /home/pi/Downloads
 rm telegramMonitoring.tar.gz
 wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
-tar -xzvf ~/Downloads/telegramMonitoring.tar.gz -C ~/
-chmod a+rwx ~/telegramMonitoring
+tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
+chmod a+rwx /home/pi/telegramMonitoring
 
 # Install jq (command-line JSON processor).
 apt install jq -y
+
+
+==> WORKING ON IT!!!!
+
+
 
 # Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
 nano /home/pi/telegramMonitoring/telegramInfo.sh
