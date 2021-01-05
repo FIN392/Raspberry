@@ -60,36 +60,28 @@ Do the following steps from Telegram:
 *(From a SSH remote connection)*
 
 ```
+sudo -i
 rm -r ~/telegramMonitoring
 mkdir ~/telegramMonitoring
 cd ~/Downloads
 rm telegramMonitoring.tar.gz
 wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf ~/Downloads/telegramMonitoring.tar.gz -C ~/
-sudo chmod a+rwx ~/telegramMonitoring
-```
+chmod a+rwx ~/telegramMonitoring
 
-Install jq (command-line JSON processor).
+# Install jq (command-line JSON processor).
+apt install jq -y
 
-```
-sudo apt install jq
-```
-
-Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
-
-```
-sudo nano /home/pi/telegramMonitoring/telegramInfo.sh
+# Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
+nano /home/pi/telegramMonitoring/telegramInfo.sh
 
     # Token for bot
     telegramToken="[Telegram Token]"
 
     # ID for Telegram user account
     telegramId="[Telegram ID]"
-```
 
-Add the following lines at the beginning of '*crontab*'.
-
-```
+# Add the following lines at the beginning of '*crontab*'.
 EDITOR=nano crontab -e
 
     # telegramMonitoring: Send initial message and start the bot listener
@@ -100,20 +92,19 @@ EDITOR=nano crontab -e
 
     # telegramMonitoring: Send KEEPALIVE message every 4 hours
     0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)
-```
 
-Add the following lines at the end of '*/home/pi/.bashrc*'.
-
-```
-sudo nano /home/pi/.bashrc
+# Add the following lines at the end of '*/home/pi/.bashrc*'.
+nano /home/pi/.bashrc
 
     # telegramMonitoring: Log in message
     /home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1
+
+exit
 ```
 
 ## <a name="test"></a>Test the commands
 
-Reboot the Raspberry. You will get the following messages via telegram:
+Reboot the Raspberry: ```sudo reboot```. You will get the following messages via telegram:
 
 ```
 ✨
