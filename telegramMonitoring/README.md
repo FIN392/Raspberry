@@ -63,6 +63,10 @@ Do the following steps from Telegram:
 # Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
+# ATTENTION!! Before copy&paste this section, replace [variable] by their value
+telegramToken="[Telegram Token]"
+telegramId="[Telegram ID]"
+
 # Install telegramMonitoring
 rm -r /home/pi/telegramMonitoring
 mkdir /home/pi/telegramMonitoring
@@ -74,10 +78,6 @@ chmod a+rwx /home/pi/telegramMonitoring
 
 # Install jq (command-line JSON processor).
 apt install jq -y
-
-# ATTENTION!! Before copy&paste, replace [Telegram Token] and [Telegram ID] by their values
-telegramToken="[Telegram Token]"
-telegramId="[Telegram ID]"
 
 # Set Telegram Token and Telegram ID
 rm /home/pi/telegramMonitoring/telegramInfo.sh
