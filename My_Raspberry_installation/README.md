@@ -65,7 +65,7 @@ Take note of the IP address displayed in the bottom right corner of the '*Welcom
 
 Follow the initial configuration windows and choose 'Restart' at the end.
 
-Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*'.
+Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*', and set values as follow:
 
 - Tab '*System*':
 	- Click on '*Change Password...*' and change the password for user '*pi*' (it is more secure).
@@ -89,13 +89,13 @@ Reboot once again.
 
 ## <a name="update"></a>OS update and base software installation
 
-*(From a SSH remote connection)*
+Connect with the Raspberry using SSH and the IP address [DHCP_address].
 
 ```
-# Everything is easy as ROOT (I AM gROOT)
+# Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
-# Upgrade and update everything
+# Upgrade and update everything (15-20 minutes approx.)
 apt install rpi-update -y
 apt autoremove -y
 apt upgrade -y
@@ -150,7 +150,7 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 *(From a SSH remote connection)*
 
 ```
-# Everything is easy as ROOT (I AM gROOT)
+# Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
 # ATTENTION!! Before copy&paste, replace [IP_LAN], [Mask_bits] and [IP_Gateway] by their values
@@ -199,13 +199,17 @@ exit
 *(From a SSH remote connection)*
 
 ```
-# Everything is easy as ROOT (I AM gROOT)
+# Everything is easier as ROOT (I AM gROOT)
 sudo -i
 
 # Install driver for TP-Link USB WiFi Adapter TL-WN725N
 wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
 chmod +x /usr/bin/install-wifi
 install-wifi
+
+# ATTENTION!! Before copy&paste, replace [WIFI_SSID] and [WIFI_Password] by their values
+WIFI_SSID=[WIFI_SSID]
+WIFI_Password=[WIFI_Password]
 
 # Wireless configuration
 rm /etc/wpa_supplicant/wpa_supplicant.conf
@@ -219,22 +223,6 @@ echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "update_config=1" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "country=ES" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "#" >> /etc/samba/wpa_supplicant/wpa_supplicant.conf
-echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
-
-# ATTENTION!! Before copy&paste, replace [WIFI_SSID] and [WIFI_Password] by their values
-WIFI_SSID=[WIFI_SSID]
-WIFI_Password=[WIFI_Password]
-
-# Set SSID and password
-echo "" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "# Set SSID and password" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "# $(date)" >> /etc/wpa_supplicant/wpa_supplicant.conf
-echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_passphrase "$WIFI_SSID" "$WIFI_Password" | grep -v "#psk=" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "#" >> /etc/wpa_supplicant/wpa_supplicant.conf
 echo "########################################" >> /etc/wpa_supplicant/wpa_supplicant.conf
@@ -273,6 +261,6 @@ exit
 sudo reboot
 ```
 
-Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and then disconnect the LAN cable and check again with the IP [IP_WLAN].
+Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and then unplug the LAN cable and check again with the IP [IP_WLAN].
 
 ---
