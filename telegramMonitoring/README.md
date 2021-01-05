@@ -119,11 +119,11 @@ crontabTasks=$( \
     echo "#" ; \
     echo "# $(date)" ; \
     echo "#" ; \
-    echo "# telegramMonitoring: Send initial message and start the bot listener" ; \
+    echo "# Send initial message and start the bot listener" ; \
     echo "@reboot (sudo /home/pi/telegramMonitoring/startUp.sh)" ; \
-    echo "# telegramMonitoring: Check Internet connection every minute" ; \
+    echo "# Check Internet connection every minute" ; \
     echo "* * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)" ; \
-    echo "# telegramMonitoring: Send KEEPALIVE message every 4 hours" ; \
+    echo "# Send KEEPALIVE message every 4 hours" ; \
     echo "0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
     echo "#" ; \
     echo "########################################" ; \
