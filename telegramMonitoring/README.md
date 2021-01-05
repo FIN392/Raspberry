@@ -35,7 +35,7 @@ Please, send me your comments, critics, doubts, requests or sues, as well as any
 
 1. [Create a Telegram bot](#bot).
 2. [Installation of '*telegramMonitoring*'](#installation).
-3. [Test the commands](#test).
+3. [Testing the commands](#testing).
 4. [How to add your own bot commands](#more).
 
 ## <a name="bot"></a>Create a Telegram bot
@@ -60,7 +60,10 @@ Do the following steps from Telegram:
 *(From a SSH remote connection)*
 
 ```
+# Everything is easier as ROOT (I AM gROOT)
 sudo -i
+
+# Install telegramMonitoring
 rm -r ~/telegramMonitoring
 mkdir ~/telegramMonitoring
 cd ~/Downloads
@@ -102,7 +105,7 @@ nano /home/pi/.bashrc
 exit
 ```
 
-## <a name="test"></a>Test the commands
+## <a name="testing"></a>Testing the commands
 
 Reboot the Raspberry: ```sudo reboot```. You will get the following messages via telegram:
 
