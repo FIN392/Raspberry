@@ -75,38 +75,57 @@ chmod a+rwx /home/pi/telegramMonitoring
 # Install jq (command-line JSON processor).
 apt install jq -y
 
+# ATTENTION!! Before copy&paste, replace [Telegram Token] and [Telegram ID] by their values
+telegramToken="[Telegram Token]"
+telegramId="[Telegram ID]"
 
-==> WORKING ON IT!!!!
+# Set Telegram Token and Telegram ID
+rm /home/pi/telegramMonitoring/telegramInfo.sh
+echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "########################################" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "# Set Telegram Token and Telegram ID" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "# $(date)" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "# Token for bot" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "telegramToken=$telegramToken" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "# ID for Telegram user account" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "telegramId=$telegramId" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "########################################" >> /home/pi/telegramMonitoring/telegramInfo.sh
+echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
 
+# Add 'logIn' to the '.bashrc' for 'pi'
+echo "" >> /home/pi/.bashrc
+echo "########################################" >> /home/pi/.bashrc
+echo "#" >> /home/pi/.bashrc
+echo "# telegramMonitoring: Log in message" >> /home/pi/.bashrc
+echo "#" >> /home/pi/.bashrc
+echo "# $(date)" >> /home/pi/.bashrc
+echo "#" >> /home/pi/.bashrc
+echo "/home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1" >> /home/pi/.bashrc
+echo "#" >> /home/pi/.bashrc
+echo "########################################" >> /home/pi/.bashrc
+echo "" >> /home/pi/.bashrc
 
+# Add taks to 'cron'.
+crontabTasks=$( \
+    echo "" ; \
+    echo "# telegramMonitoring: Send initial message and start the bot listener" ; \
+    echo "@reboot (sudo /home/pi/telegramMonitoring/startUp.sh)" ; \
+    echo "" ; \
+    echo "# telegramMonitoring: Check Internet connection every minute" ; \
+    echo "* * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)" ; \
+    echo "" ; \
+    echo "# telegramMonitoring: Send KEEPALIVE message every 4 hours" ; \
+    echo "0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
+    echo "" ; \
+) 
+(crontab -u pi -l 2>/dev/null; echo "$crontabTasks") | crontab -u pi -
 
-# Edit file '*/home/pi/telegramMonitoring/telegramInfo.sh*' and change the Telegram bot token and the Telegram ID for your user.
-nano /home/pi/telegramMonitoring/telegramInfo.sh
-
-    # Token for bot
-    telegramToken="[Telegram Token]"
-
-    # ID for Telegram user account
-    telegramId="[Telegram ID]"
-
-# Add the following lines at the beginning of '*crontab*'.
-EDITOR=nano crontab -e
-
-    # telegramMonitoring: Send initial message and start the bot listener
-    @reboot (sudo /home/pi/telegramMonitoring/startUp.sh)
-
-    # telegramMonitoring: Check Internet connection every minute
-    * * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)
-
-    # telegramMonitoring: Send KEEPALIVE message every 4 hours
-    0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)
-
-# Add the following lines at the end of '*/home/pi/.bashrc*'.
-nano /home/pi/.bashrc
-
-    # telegramMonitoring: Log in message
-    /home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1
-
+# Exit from sudo
 exit
 ```
 
