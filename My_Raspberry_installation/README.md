@@ -271,6 +271,9 @@ My second extremely high recommendation is to update and update everything from 
 How? '*This is the way*'.
 
 ```
+# Everything is easier as ROOT ('I AM gROOT')
+sudo -i
+
 # Upgrade and update everything (takes 15-20 minutes approx.)
 apt install rpi-update -y
 apt autoremove -y
