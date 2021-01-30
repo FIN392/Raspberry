@@ -123,8 +123,8 @@ crontabTasks=$( \
     echo "@reboot (sudo /home/pi/telegramMonitoring/startUp.sh)" ; \
     echo "# Check Internet connection every minute" ; \
     echo "* * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)" ; \
-    echo "# Send KEEPALIVE message every 4 hours" ; \
-    echo "0 */4 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
+    echo "# Send KEEPALIVE message at noon" ; \
+    echo "0 12 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
     echo "#" ; \
     echo "########################################" ; \
     echo "" ; \
