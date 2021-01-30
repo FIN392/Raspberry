@@ -151,7 +151,7 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 *(From a SSH remote connection)*
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
@@ -200,7 +200,7 @@ exit
 *(From a SSH remote connection)*
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
@@ -268,7 +268,7 @@ I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a grea
 
 My second extremely high recommendation is to update and update everything from time to time (I mean at least twice a year, not twice for life).
 
-How? '*This is the Way*'.
+How? '*This is the way*'.
 
 ```
 # Upgrade and update everything (takes 15-20 minutes approx.)
