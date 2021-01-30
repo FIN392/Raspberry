@@ -35,7 +35,8 @@ I use the following hardware, so other options might involve slight differences:
 3. [OS update and base software installation](#update).
 4. [Setup LAN connection](#lan).
 5. [Setup WiFi connection](#wifi).
-6. [Reboot, checks and backup](#checks).
+6. [Reboot and checks](#checks).
+7. [Backup and periodic update](#backup).
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
@@ -92,10 +93,10 @@ Reboot once again.
 Connect with the Raspberry using SSH and the IP address [DHCP_address].
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
-# Upgrade and update everything (15-20 minutes approx.)
+# Upgrade and update everything (takes 15-20 minutes approx.)
 apt install rpi-update -y
 apt autoremove -y
 apt upgrade -y
@@ -150,7 +151,7 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 *(From a SSH remote connection)*
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
@@ -199,7 +200,7 @@ exit
 *(From a SSH remote connection)*
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
@@ -260,5 +261,24 @@ sudo reboot
 ```
 
 Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and then unplug the LAN cable and check again with the IP [IP_WLAN].
+
+## <a name="backup"></a>Backup and periodic update
+
+I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a great option for this, so take a look at its official website [win32diskimager.org](https://win32diskimager.org/).
+
+My second extremely high recommendation is to update and update everything from time to time (I mean at least twice a year, not twice for life).
+
+How? '*This is the way*'.
+
+```
+# Upgrade and update everything (takes 15-20 minutes approx.)
+apt install rpi-update -y
+apt autoremove -y
+apt upgrade -y
+apt update -y
+apt full-upgrade -y
+```
+
+'*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
 
 ---
