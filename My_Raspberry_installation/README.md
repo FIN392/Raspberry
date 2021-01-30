@@ -93,7 +93,7 @@ Reboot once again.
 Connect with the Raspberry using SSH and the IP address [DHCP_address].
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # Upgrade and update everything (takes 15-20 minutes approx.)
@@ -268,7 +268,7 @@ I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a grea
 
 My second extremely high recommendation is to update and update everything from time to time (I mean at least twice a year, not twice for life).
 
-How? Just copy and paste this.
+How? '*This is the Way*'.
 
 ```
 # Upgrade and update everything (takes 15-20 minutes approx.)
@@ -279,8 +279,6 @@ apt update -y
 apt full-upgrade -y
 ```
 
-That's all folks!
-
-Please, send me your comments, critics, doubts, requests or sues.
+'*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
 
 ---
