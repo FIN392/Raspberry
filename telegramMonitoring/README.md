@@ -60,7 +60,7 @@ Do the following steps from Telegram:
 *(From a SSH remote connection)*
 
 ```
-# Everything is easier as ROOT (I AM gROOT)
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
@@ -187,5 +187,7 @@ echo "%E2%9A%99" # 'UTF-8 Hex Bytes' code of any icon (https://www.iemoji.com/)
 Be sure to secure the script with:
 
 ```sudo chmod a+wrx ~/telegramMonitoring/botCommands/{script name}.sh```
+
+'*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
 
 ---
