@@ -36,7 +36,7 @@ I use the following hardware, so other options might involve slight differences:
 4. [Setup LAN connection](#lan).
 5. [Setup WiFi connection](#wifi).
 6. [Reboot and checks](#checks).
-7. [Backup and periodic update](#update).
+7. [Backup and periodic update](#backup).
 
 ## <a name="sd"></a>Burn Raspberry Pi OS to SD card
 
@@ -262,9 +262,13 @@ sudo reboot
 
 Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and then unplug the LAN cable and check again with the IP [IP_WLAN].
 
-## <a name="update"></a>Backup and periodic update
+## <a name="backup"></a>Backup and periodic update
 
-I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a great option for this, have look to their official web [win32diskimager.org](https://win32diskimager.org/).
+I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a great option for this, so take a look at its official website [win32diskimager.org](https://win32diskimager.org/).
+
+My second extremely high recommendation is to update and update everything from time to time (I mean at least twice a year, not twice for life).
+
+How? Just copy and paste this.
 
 ```
 # Upgrade and update everything (takes 15-20 minutes approx.)
@@ -275,6 +279,8 @@ apt update -y
 apt full-upgrade -y
 ```
 
+That's all folks!
 
+Please, send me your comments, critics, doubts, requests or sues.
 
 ---
