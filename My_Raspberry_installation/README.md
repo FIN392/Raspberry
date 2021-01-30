@@ -4,7 +4,7 @@
 
 The goal is to do the installation of a Raspberry Pi step by step.
 
-Please understand that *this is the way* I do it for the hardware that I have. The idea is that it serves as an example since with your hardware there may be things that needs to be done differently.
+Please understand that these are only the steps I take for my own hardware. The idea is to serve as an example, as with your hardware there may be things that need to be done differently.
 
 ## Requirements
 
