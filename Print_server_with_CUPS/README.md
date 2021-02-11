@@ -4,6 +4,8 @@
 
 The goal is to use Raspberry as print server and get notifications via Telegram.
 
+*Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)'*
+
 Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
@@ -19,8 +21,6 @@ Please, send me your comments, critics, doubts, requests or sues.
 3. [Add Telegram monitoring](#telegram).
 
 ## <a name="CUPS"></a>Installation of '*CUPS*'
-
-*(Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)')*
 
 *(From a SSH remote connection)*
 
