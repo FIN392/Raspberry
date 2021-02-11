@@ -8,9 +8,11 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
 
-1. aaa ...
-2. bbb ...
-3. ccc ...
+- [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
+- [Telegram](https://telegram.org). You should have an active Telegram account.
+- A printer connected to the Raspberry via USB.
+- [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring)  installed.
+
 
 ## Steps
 
