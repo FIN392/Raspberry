@@ -68,9 +68,11 @@ exit
 
 Connect printer to the Raspberry via USB and turn it on.
 
-Browse '*\\\[IP_WLAN]:631*' and click '*Administration*' in the navigation menu at the top of the screen.
+Browse '*http://192.168.1.9:631/*' and click '*Administration*' in the navigation menu at the top of the screen.
 
 Click on the '*Add Printer*' button, in the '*Printers*' section.
+
+
 
 Select the printer to set up. In my case, '*HP LaserJet P2035 (HP LaserJet P2035)*'.
 
