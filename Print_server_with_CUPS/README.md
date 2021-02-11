@@ -2,9 +2,9 @@
 
 # Print server with CUPS
 
-The goal is to use Raspberry as print server and get notifications via Telegram.
+*(Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)')*
 
-*Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)'*
+The goal is to use Raspberry as print server and get notifications via Telegram.
 
 Please, send me your comments, critics, doubts, requests or sues.
 
