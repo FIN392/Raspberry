@@ -162,7 +162,7 @@ Shows the time up              : /uptime
 List of logged in users        : /users
 ```
 
-Send the different commands and check the results
+Send the different commands and check the results.
 
 ## <a name="more"></a>How to add your own bot commands
 
