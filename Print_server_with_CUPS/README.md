@@ -8,9 +8,9 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
 
-- [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
+- [Raspberry Pi](https://www.raspberrypi.org){:target="_blank"}. It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
 - A printer connected to the Raspberry via USB.
-- [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring)  installed.
+- [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring){:target="_blank"}  installed.
 
 ## Steps
 
@@ -20,7 +20,7 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 ## <a name="CUPS"></a>Installation of '*CUPS*'
 
-*(Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)')*
+*(Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/){:target="_blank"}' published on '[Pi My Life Up](https://pimylifeup.com/){:target="_blank"}')*
 
 *(From a SSH remote connection)*
 
@@ -86,7 +86,7 @@ Configure the printer in your computer and print out a test page.
 
 ## <a name="telegram"></a>Add Telegram monitoring
 
-Install [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring).
+Install [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring){:target="_blank"}.
 
 
 
