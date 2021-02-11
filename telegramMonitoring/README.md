@@ -2,7 +2,7 @@
 
 # telegramMonitoring:<br>How to mange your Raspberry Pi through Telegram?
 
-The goal is to do a basic management of a Raspberry via telegram.
+The goal is to do a basic monitoring of a Raspberry via Telegram.
 
 What can you do?
 
