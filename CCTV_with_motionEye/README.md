@@ -22,6 +22,15 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 aaa ...
 
+
+```
+sudo -i
+
+apt-get install ffmpeg v4l-utils
+
+
+```
+
 ## <a name="bbb"></a>bbb
 
 bbb ...
@@ -66,16 +75,23 @@ Option B:
 
 ```
     sudo raspi-config nonint do_camera 1
+    sudo reboot
 ```
 
 raspistill --verbose --output test.jpg
 
+# 3280x2464
+raspistill --output /home/pi/Pictures/test.jpg
 
-	Pruebas	
-		3280x2464: raspistill --output /home/pi/Pictures/test.jpg
-		640x480  : raspistill --output /home/pi/Pictures/test-small.jpg --width 640 --height 480
-		video    : raspivid --output /home/pi/Pictures/test-video.h264
-		No pink  : raspistill --verbose --settings --shutter $2 --vflip --hflip --ev -24 --ISO 100 --awb off --awbgains 1.0,1.0 --drc high --stats --nopreview --quality 10 --timeout 100 --output /home/pi/Pictures/test-nopink.jpg
+# 640x480
+raspistill --output /home/pi/Pictures/test-small.jpg --width 640 --height 480
+
+# video
+raspivid --output /home/pi/Pictures/test-video.h264
+
+# No pink
+raspistill --verbose --settings --shutter $2 --vflip --hflip --ev -24 --ISO 100 --awb off --awbgains 1.0,1.0 --drc high --stats --nopreview --quality 10 --timeout 100 --output /home/pi/Pictures/test-nopink.jpg
+
 ~
 
 https://eltallerdelbit.com/motioneye-raspberry-pi/
