@@ -98,10 +98,13 @@ Add 'spoolCheck' script to 'telegramMonitoring'
 # Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
-# Download 'telegramMonitor' script
-cd /home/pi/telegramMonitor
+# Download the script to 'telegramMonitoring'
+cd /home/pi/telegramMonitoring
 wget -v https://github.com/FIN392/Raspberry/raw/main/Print_server_with_CUPS/spoolCheck.sh
 chmod a+rwx /home/pi/telegramMonitoring/spoolCheck.sh
+
+# Exit from sudo
+exit
 ```
 
 '*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
