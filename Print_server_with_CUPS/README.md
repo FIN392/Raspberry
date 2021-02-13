@@ -18,7 +18,7 @@ Please, send me your comments, critics, doubts, requests or sues.
 
 1. [Installation of '*CUPS*'](#CUPS).
 2. [Configure printer](#config).
-3. [Add Telegram monitoring](#telegram).
+3. [Add monitoring via Telegram](#telegram).
 
 ## <a name="CUPS"></a>Installation of '*CUPS*'
 
@@ -86,19 +86,23 @@ Select the model of your printer and click the '*Add Printer*'.
 
 Configure the printer in your computer and print out a test page.
 
-## <a name="telegram"></a>Add Telegram monitoring
+## <a name="telegram"></a>Add monitoring via Telegram
 
-Install [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring).
+If it is not already done, install [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring).
 
+Add 'spoolCheck' script to 'telegramMonitoring'
 
+*(From a SSH remote connection)*
 
+```
+# Everything is easier as ROOT ('I AM gROOT')
+sudo -i
 
-
-
-
-
-
-
+# Download 'telegramMonitor' script
+cd /home/pi/telegramMonitor
+wget -v https://github.com/FIN392/Raspberry/raw/main/Print_server_with_CUPS/spoolCheck.sh
+chmod a+rwx /home/pi/telegramMonitoring/spoolCheck.sh
+```
 
 '*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
 
