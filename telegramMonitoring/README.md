@@ -2,7 +2,7 @@
 
 # telegramMonitoring:<br>How to mange your Raspberry Pi through Telegram?
 
-The goal is to do a basic management of a Raspberry via telegram.
+The goal is to do a basic monitoring of a Raspberry via Telegram.
 
 What can you do?
 
@@ -74,9 +74,9 @@ cd /home/pi/Downloads
 rm telegramMonitoring.tar.gz
 wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
-chmod a+rwx /home/pi/telegramMonitoring
+chmod a+rwx /home/pi/telegramMonitoring/*
 
-# Install jq (command-line JSON processor).
+# Install jq (command-line JSON processor)
 apt install jq -y
 
 # Set Telegram Token and Telegram ID
@@ -162,7 +162,7 @@ Shows the time up              : /uptime
 List of logged in users        : /users
 ```
 
-Send the different commands and check the results
+Send the different commands and check the results.
 
 ## <a name="more"></a>How to add your own bot commands
 

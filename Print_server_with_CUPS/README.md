@@ -2,54 +2,42 @@
 
 # Print server with CUPS
 
-The goal is to ... I'm working on it.
+*(Special thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)')*
+
+The goal is to use Raspberry as print server and get notifications via Telegram.
 
 Please, send me your comments, critics, doubts, requests or sues.
 
 ## Requirements
 
-1. aaa ...
-2. bbb ...
-3. ccc ...
+- [Raspberry Pi](https://www.raspberrypi.org). It should be up and running with access to Internet (only HTTPS port is required, so it is pretty secure).
+- A printer connected to the Raspberry via USB.
+- [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring) installed.
 
 ## Steps
 
-1. ...[Installation of '*CUPS*'](#CUPS)
-2. ...[bbb](#bbb)
-3. ...[ccc](#ccc)
+1. [Installation of '*CUPS*'](#CUPS).
+2. [Configure printer](#config).
+3. [Add Telegram monitoring](#telegram).
 
 ## <a name="CUPS"></a>Installation of '*CUPS*'
 
-aaa ...
-
-## <a name="bbb"></a>bbb
-
-bbb ...
-
-## <a name="ccc"></a>ccc
-
-ccc ...
-
----
-
-
-*(Thanks to Gus for their blog entry '[Raspberry Pi Print Server: Setup a Network Printer](https://pimylifeup.com/raspberry-pi-print-server/)' published on '[Pi My Life Up](https://pimylifeup.com/)')*
-
-### Install CUPS
-
-*(From SSH console)*
+*(From a SSH remote connection)*
 
 ```
-    sudo apt install cups
-    sudo usermod -a -G lpadmin pi
-    sudo cupsctl --remote-any
-    sudo systemctl restart cups
+# Everything is easier as ROOT ('I AM gROOT')
+sudo -i
 
-	sudo apt install samba
+apt install cups -y
+usermod -a -G lpadmin pi
+cupsctl --remote-any
+systemctl restart cups
 
-	sudo nano /etc/samba/smb.conf
+apt install samba -y
 
-        # Change the values to match the following.
+nano /etc/samba/smb.conf
+
+        # Change [printers] and [print$] section as follow.
 
         # CUPS printing.  
         [printers]
@@ -69,42 +57,49 @@ ccc ...
         browseable = yes
         read only = no
         guest ok = no
+
+# Exit from sudo
+exit
 ```
 
-### Configure printer
+## <a name="config"></a>Configure printer
 
 *(From web browser)*
 
-Connect printer to the Raspberry via USB and turn it on
+Connect printer to the Raspberry via USB and turn it on.
 
-Browse '*\\\[IP_WLAN]:631*' and click '*Administration*' in the navigation menu at the top of the screen
+Browse '*http://192.168.1.9:631/*' and click '*Administration*' in the navigation menu at the top of the screen.
 
-Click on the '*Add Printer*' button, in the '*Printers*' section
+Click on the '*Add Printer*' button, in the '*Printers*' section.
 
-Select the printer to set up. In my case, '*HP LaserJet P2035 (HP LaserJet P2035)*'
 
-Click the '*Continue*'
 
-Check '*Share This Printer*' and click '*Continue*'
+Select the printer to set up. In my case, '*HP LaserJet P2035 (HP LaserJet P2035)*'.
 
-Select the model of your printer and click the '*Add Printer*'
+Click the '*Continue*'.
+
+Check '*Share This Printer*' and click '*Continue*'.
+
+Select the model of your printer and click the '*Add Printer*'.
 
 *(From computer)*
 
-Configure the printer in your computer and print out a test page
+Configure the printer in your computer and print out a test page.
+
+## <a name="telegram"></a>Add Telegram monitoring
+
+Install [telegramMonitoring](https://github.com/FIN392/Raspberry/edit/main/telegramMonitoring).
+
+
+
+
+
+
+
+
+
+
+
+'*That's all folks!*' Please, send me your comments, critics, doubts, requests or sues.
 
 ---
-### CHECK
-### Add '*/printer*' command and './spoolCheck.sh' script to '*telegramMonitoring*'
-
-*(From computer)*
-
-Copy file 'printer.sh' to '\\[IP_WLAN]\telegramMonitoring\botCommands'
-
-*(From SSH console)*
-
-```
-    sudo chmod a+rwx --recursive --verbose /home/pi/telegramMonitoring/botCommands/printer.sh
-    sudo chown pi:pi --verbose --recursive /home/pi/telegramMonitoring/botCommands/printer.sh
-```
-### CHECK
