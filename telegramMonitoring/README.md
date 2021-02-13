@@ -74,9 +74,9 @@ cd /home/pi/Downloads
 rm telegramMonitoring.tar.gz
 wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
-chmod a+rwx /home/pi/telegramMonitoring
+chmod a+rwx /home/pi/telegramMonitoring/*
 
-# Install jq (command-line JSON processor).
+# Install jq (command-line JSON processor)
 apt install jq -y
 
 # Set Telegram Token and Telegram ID
