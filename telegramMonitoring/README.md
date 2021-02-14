@@ -67,6 +67,10 @@ sudo -i
 telegramToken="[Telegram Token]"
 telegramId="[Telegram ID]"
 
+# Install the dependencies
+# jq (command-line JSON processor)
+apt install jq -y
+
 # Install telegramMonitoring
 rm -r /home/pi/telegramMonitoring
 mkdir /home/pi/telegramMonitoring
@@ -75,9 +79,6 @@ rm telegramMonitoring.tar.gz
 wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
 chmod a+rwx /home/pi/telegramMonitoring/*
-
-# Install jq (command-line JSON processor)
-apt install jq -y
 
 # Set Telegram Token and Telegram ID
 rm /home/pi/telegramMonitoring/telegramInfo.sh
