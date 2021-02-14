@@ -72,13 +72,12 @@ telegramId="[Telegram ID]"
 apt install jq -y
 
 # Install telegramMonitoring
-rm -r /home/pi/telegramMonitoring
+rm /home/pi/telegramMonitoring --recursive
 mkdir /home/pi/telegramMonitoring
 cd /home/pi/Downloads
 rm telegramMonitoring.tar.gz
-wget -v https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
+wget --verbose https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
 tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
-chmod a+rwx /home/pi/telegramMonitoring/*
 
 # Set Telegram Token and Telegram ID
 rm /home/pi/telegramMonitoring/telegramInfo.sh
@@ -131,6 +130,10 @@ crontabTasks=$( \
     echo "" ; \
 ) 
 (crontab -u pi -l 2>/dev/null; echo "$crontabTasks") | crontab -u pi -
+
+# Securing
+chown pi:pi /home/pi/telegramMonitoring/* --recursive
+chmod a+rwx /home/pi/telegramMonitoring/* --recursive
 
 # Exit from sudo
 exit
