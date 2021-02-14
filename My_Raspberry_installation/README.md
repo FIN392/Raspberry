@@ -266,7 +266,7 @@ Once started again, check the SSH and RDP accesses with the IP [IP_LAN], and the
 
 I highly recommend making an image of the SD card. 'Win32 Disk Imager' is a great option for this, so take a look at its official website [win32diskimager.org](https://win32diskimager.org/).
 
-My second extremely high recommendation is to update and update everything from time to time (I mean at least twice a year, not twice for life).
+My second extremely high recommendation is to update and upgrade everything from time to time (I mean at least twice a year, not twice for life).
 
 How? '*This is the way*'.
 
