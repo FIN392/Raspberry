@@ -24,10 +24,65 @@ aaa ...
 
 
 ```
+# Everything is easier as ROOT ('I AM gROOT')
 sudo -i
 
-apt-get install ffmpeg v4l-utils
 
+
+FROM https://github.com/ccrisan/motioneye
+
+
+
+# Install dependencies
+apt install ffmpeg -y
+apt install libmariadb3 -y
+apt install libpq5 -y
+apt install libmicrohttpd12 -y
+
+# Install 'motion'
+cd /home/pi/Downloads
+wget --verbose https://github.com/Motion-Project/motion/releases/download/release-4.2.2/pi_buster_motion_4.2.2-1_armhf.deb
+dpkg -i pi_buster_motion_4.2.2-1_armhf.deb
+
+# Install more dependencies
+apt install python-pip -y
+apt install python-dev -y
+apt install libssl-dev -y
+apt install libcurl4-openssl-dev -y
+apt install libjpeg-dev libz-dev -y
+
+
+# Install motioneye
+pip3 install --upgrade setuptools
+pip3 install motioneye
+
+# Prepare the configuration directory
+mkdir -p /etc/motioneye
+cp /usr/local/share/motioneye/extra/motioneye.conf.sample /etc/motioneye/motioneye.conf
+
+# Prepare the media directory:
+mkdir -p /var/lib/motioneye
+
+# Add an init script, configure it to run at startup and start the motionEye server:
+cp /usr/local/share/motioneye/extra/motioneye.systemd-unit-local /etc/systemd/system/motioneye.service
+systemctl daemon-reload
+systemctl enable motioneye
+systemctl start motioneye
+
+# Upgrade to the newest version of motionEye
+pip3 install motioneye --upgrade
+systemctl restart motioneye
+
+http://[your_ip]:8765/
+
+
+admin / (void)
+
+
+pip install --upgrade motioneye
+
+
+ 
 
 ```
 
