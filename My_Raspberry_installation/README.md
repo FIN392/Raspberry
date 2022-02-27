@@ -48,9 +48,9 @@ Insert the SD into a card reader.
 
 Launch Raspberry Pi Imager.
 
-Click on 'Choose SD card' and select the correct SD card unit.
+Click on 'Operating System' and select '*Raspberry Pi OS (32-bit)*'.
 
-Click on 'Choose OS' and select '*Raspberry Pi OS (32-bit)*'.
+Click on 'Storage' and select the correct SD card unit.
 
 Click on '*WRITE*'.
 
