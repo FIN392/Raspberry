@@ -46,7 +46,7 @@ Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/
 
 Insert the SD into a card reader.
 
-Launch Raspberry Pi Imager.
+Launch 'Raspberry Pi Imager'.
 
 Click on 'Operating System' and select '*Raspberry Pi OS (32-bit)*'.
 
@@ -60,7 +60,7 @@ Click on '*WRITE*'.
 
 Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
 
-Insert the SD card and turn Raspberry Pi on.
+Insert the SD card and turn the Raspberry Pi on.
 
 Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
 
@@ -155,6 +155,7 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
+# For example, 192.168.1.10 / 24 / 192.168.1.1
 IP_LAN=[IP_LAN]
 Mask_bits=[Mask_bits]
 IP_Gateway=[IP_Gateway]
@@ -204,6 +205,7 @@ exit
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
+# For example, 192.168.1.11 / 24 / 192.168.1.1 / WLAN_FABADA / SecretP@ssw0rd
 IP_WLAN=[IP_WLAN]
 Mask_bits=[Mask_bits]
 IP_Gateway=[IP_Gateway]
