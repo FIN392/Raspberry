@@ -155,10 +155,9 @@ Check the RDP and SMB connections from a computer with the IP [DHCP_address].
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
-# For example, 192.168.1.10 / 24 / 192.168.1.1
-IP_LAN=[IP_LAN]
-Mask_bits=[Mask_bits]
-IP_Gateway=[IP_Gateway]
+IP_LAN=[IP_LAN]         # e.g., 192.168.1.10
+Mask_bits=[Mask_bits]   # e.g., 24
+IP_Gateway=[IP_Gateway] # e.g., 192.168.1.1
 
 # Static IP configuration for 'eth0'
 echo "" >> /etc/dhcpcd.conf
@@ -205,12 +204,11 @@ exit
 sudo -i
 
 # ATTENTION!! Before copy&paste this section, replace [variable] by their value
-# For example, 192.168.1.11 / 24 / 192.168.1.1 / WLAN_FABADA / SecretP@ssw0rd
-IP_WLAN=[IP_WLAN]
-Mask_bits=[Mask_bits]
-IP_Gateway=[IP_Gateway]
-WIFI_SSID=[WIFI_SSID]
-WIFI_Password=[WIFI_Password]
+IP_WLAN=[IP_WLAN]             # e.g., 192.168.1.11
+Mask_bits=[Mask_bits]         # e.g., 24
+IP_Gateway=[IP_Gateway]       # e.g., 192.168.1.1
+WIFI_SSID=[WIFI_SSID]         # e.g., WLAN_FABADA
+WIFI_Password=[WIFI_Password] # e.g., SecretP@ssw0rd
 
 # Install driver for TP-Link USB WiFi Adapter TL-WN725N
 wget http://downloads.fars-robotics.net/wifi-drivers/install-wifi -O /usr/bin/install-wifi
