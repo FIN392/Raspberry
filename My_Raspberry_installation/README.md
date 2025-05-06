@@ -25,7 +25,7 @@ Please understand that these are only the steps I take for my own hardware. The 
 
 I use the following hardware, so other options might involve slight differences:
 
-- [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)  
+- [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)
 
 ## Steps

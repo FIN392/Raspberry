@@ -33,108 +33,146 @@ Please, send me your comments, critics, doubts, requests or sues, as well as any
 
 ## Steps
 
-1. [Create a Telegram bot](#bot).
-2. [Installation of '*telegramMonitoring*'](#installation).
-3. [Testing the commands](#testing).
-4. [How to add your own bot commands](#more).
+- [Requirements](#requirements)
+- [Steps](#steps)
+- [Get your Telegram ID](#get-your-telegram-id)
+- [Create a Telegram bot](#create-a-telegram-bot)
+- [Install '*telegramMonitoring*'](#install-telegrammonitoring)
+- [Testing the commands](#testing-the-commands)
+- [How to add your own bot commands](#how-to-add-your-own-bot-commands)
+
+## <a name="id"></a>Get your Telegram ID
+
+*(On Telegram)*
+
+First of all, you need to know your Telegram ID (not username @xxxxx):
+1. Open a chat with '*@userinfobot*'
+2. Send text '*/start*'
+3. Take note of your ID. This data will be referred to later as [Telegram ID]
 
 ## <a name="bot"></a>Create a Telegram bot
 
-Do the following steps from Telegram:
-1. Take note of your Telegram ID sending '*/start*' to '*@userinfobot*'. (This data will be referred to later as [Telegram ID])
-2. Create bot sending the following '*/*' commands to '*@BotFather*':
-- */start*
-- */newbot*
-	- *{Telegram Botname}_bot*
-	- *{Telegram Botname}_bot*
-- */setdescription*
-	- *@{Telegram Botname}_bot*
-	- *Contact @{your Telegram Username} for any information*
-- */setcommands*
-	- *@{Telegram Botname}_bot*
-	- *help - Show available commands*
-3. Take note of the bot token sending '*/token*' to '*@BotFather*'. (This data will be referred to later as [Telegram Token])
+*(On Telegram)*
 
-## <a name="installation"></a>Installation of '*telegramMonitoring*'
+Now let's create a bot to communicate with our Raspberry:
+1. Open a chat with '*@BotFather*'
+2. Send text '*/newbot*'
+3. '*Alright, a new bot. How are we going to call it? Please choose a name for your bot.*', type the name of your bot. I recommend that it be the same as the name of your Raspberry Pi (use the '*hostname*' command to find out)
+4. '*Good. Now let's choose a username for your bot. It must end in `bot`. Like this, for example: TetrisBot or tetris_bot.*', type the same name ending in '*_bot*'
+5. Take note of the token to access the HTTP API. It looks like this '*1234567890:12345678-90ABCDEFGHIJKLmnopqrstuvwx*'. This data will be referred to later as [Telegram Token])
 
-*(From a SSH remote connection)*
+## <a name="installation"></a>Install '*telegramMonitoring*'
+
+*(On the Raspbery Pi console)*
 
 ```
 # Everything is easier as ROOT ('I AM gROOT')
+
 sudo -i
+```
 
-# ATTENTION!! Before copy&paste this section, replace [variable] by their value
-telegramToken="[Telegram Token]"
-telegramId="[Telegram ID]"
+```
+# First things first, keep your OS up to date
 
-# Install the dependencies
-# jq (command-line JSON processor)
+apt update -y
+apt full-upgrade -y
+apt autoremove -y
+reboot
+```
+
+```
+# Install the dependencies: 'jq' (command-line JSON processor)
+
 apt install jq -y
 
+jq --version
+```
+
+```
 # Install telegramMonitoring
-rm /home/pi/telegramMonitoring --recursive
-mkdir /home/pi/telegramMonitoring
-cd /home/pi/Downloads
-rm telegramMonitoring.tar.gz
-wget --verbose https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
-tar -xzvf /home/pi/Downloads/telegramMonitoring.tar.gz -C /home/pi/
 
+rm /opt/telegramMonitoring --recursive --force
+mkdir /opt/telegramMonitoring
+wget --verbose --output-document=/tmp/telegramMonitoring.tar.gz https://github.com/FIN392/Raspberry/raw/main/telegramMonitoring/telegramMonitoring.tar.gz
+tar -xzvf /tmp/telegramMonitoring.tar.gz -C /opt/
+chmod u=rwx,g=rx,o=rx /opt/telegramMonitoring --recursive
+
+ls /opt/telegramMonitoring --format=long --recursive
+```
+
+```
+# ATTENTION!! Before copy&paste this section, replace [variable] by their value
+
+# Set variables telegramId and telegramToken
+
+telegramId="[Telegram ID]"
+telegramToken="[Telegram Token]"
+```
+
+```
 # Set Telegram Token and Telegram ID
-rm /home/pi/telegramMonitoring/telegramInfo.sh
-echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "########################################" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "# Set Telegram Token and Telegram ID" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "# $(date)" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "# Token for bot" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "telegramToken=$telegramToken" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "# ID for Telegram user account" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "telegramId=$telegramId" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "#" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "########################################" >> /home/pi/telegramMonitoring/telegramInfo.sh
-echo "" >> /home/pi/telegramMonitoring/telegramInfo.sh
 
-# Add 'logIn' to the '.bashrc' for 'pi'
-echo "" >> /home/pi/.bashrc
-echo "########################################" >> /home/pi/.bashrc
-echo "#" >> /home/pi/.bashrc
-echo "# telegramMonitoring: Log in message" >> /home/pi/.bashrc
-echo "#" >> /home/pi/.bashrc
-echo "# $(date)" >> /home/pi/.bashrc
-echo "#" >> /home/pi/.bashrc
-echo "/home/pi/telegramMonitoring/logIn.sh > /dev/null 2>&1" >> /home/pi/.bashrc
-echo "#" >> /home/pi/.bashrc
-echo "########################################" >> /home/pi/.bashrc
-echo "" >> /home/pi/.bashrc
+rm /opt/telegramMonitoring/telegramInfo.sh --force
+lines="########################################
+#
+# Set Telegram Token and Telegram ID
+#
+# $(date)
+#
+telegramToken=\"$telegramToken\"
+telegramId=\"$telegramId\"
+#
+########################################"
+echo "$lines" >> /opt/telegramMonitoring/telegramInfo.sh
+chmod u=rwx,g=rx,o=rx /opt/telegramMonitoring/telegramInfo.sh
 
-# Add taks to 'cron'.
-crontabTasks=$( \
-    echo "" ; \
-    echo "########################################" ; \
-    echo "#" ; \
-    echo "# telegramMonitoring: Tasks" ; \
-    echo "#" ; \
-    echo "# $(date)" ; \
-    echo "#" ; \
-    echo "# Send initial message and start the bot listener" ; \
-    echo "@reboot (sudo /home/pi/telegramMonitoring/startUp.sh)" ; \
-    echo "# Check Internet connection every minute" ; \
-    echo "* * * * * (sudo /home/pi/telegramMonitoring/internetConnection.sh)" ; \
-    echo "# Send KEEPALIVE message at noon" ; \
-    echo "0 12 * * * (sudo /home/pi/telegramMonitoring/stillAlive.sh)" ; \
-    echo "#" ; \
-    echo "########################################" ; \
-    echo "" ; \
-) 
-(crontab -u pi -l 2>/dev/null; echo "$crontabTasks") | crontab -u pi -
+cat /opt/telegramMonitoring/telegramInfo.sh
+```
 
-# Securing
-chown pi:pi /home/pi/telegramMonitoring/* --recursive
-chmod a+rwx /home/pi/telegramMonitoring/* --recursive
+```
+# Add 'logIn' to '/etc/profile'
 
+lines="
+########################################
+#
+# telegramMonitoring: Log in message
+#
+# $(date)
+#
+/opt/telegramMonitoring/logIn.sh > /dev/null 2>&1
+#
+########################################"
+echo "$lines" >> /etc/profile
+
+cat /etc/profile
+```
+
+```
+# Add taks to 'cron'
+
+rm /etc/cron.d/telegramMonitoring --force
+lines="########################################
+#
+# telegramMonitoring: Tasks
+#
+# $(date)
+#
+# Send initial message and start the bot listener
+@reboot (sudo /opt/telegramMonitoring/startUp.sh)
+# Check Internet connection every minute
+* * * * * (sudo /opt/telegramMonitoring/internetConnection.sh)
+# Send KEEPALIVE message at noon
+0 12 * * * (sudo /opt/telegramMonitoring/stillAlive.sh)
+#
+########################################"
+echo "$lines" >> /etc/cron.d/telegramMonitoring
+chmod u=rw,g=r,o=r /etc/cron.d/telegramMonitoring
+chown root:root /etc/cron.d/telegramMonitoring
+
+cat /etc/cron.d/telegramMonitoring
+```
+
+```
 # Exit from sudo
 exit
 ```
