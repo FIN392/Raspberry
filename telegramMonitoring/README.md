@@ -158,16 +158,18 @@ lines="########################################
 # $(date)
 #
 # Send initial message and start the bot listener
-@reboot (sudo /opt/telegramMonitoring/startUp.sh)
-# Check Internet connection every minute
-* * * * * (sudo /opt/telegramMonitoring/internetConnection.sh)
-# Send KEEPALIVE message at noon
-0 12 * * * (sudo /opt/telegramMonitoring/stillAlive.sh)
+@reboot root /opt/telegramMonitoring/startUp.sh
 #
-########################################"
-echo "$lines" >> /etc/cron.d/telegramMonitoring
-chmod u=rw,g=r,o=r /etc/cron.d/telegramMonitoring
-chown root:root /etc/cron.d/telegramMonitoring
+# Check Internet connection every 10 minutes
+*/10 * * * * root /opt/telegramMonitoring/internetConnection.sh
+#
+# Send KEEPALIVE message to healthchecks.io every 10 minutes
+*/10 * * * * root /opt/telegramMonitoring/healthchecks.sh
+#
+# Send KEEPALIVE message at noon
+0 12 * * * root /opt/telegramMonitoring/stillAlive.sh
+#
+########################################
 
 cat /etc/cron.d/telegramMonitoring
 ```
