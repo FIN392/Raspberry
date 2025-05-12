@@ -170,7 +170,7 @@ lines="########################################
 0 12 * * * root /opt/telegramMonitoring/stillAlive.sh
 #
 ########################################"
-echo $lines > /etc/cron.d/telegramMonitoring
+echo "$lines" > /etc/cron.d/telegramMonitoring
 
 cat /etc/cron.d/telegramMonitoring
 ```
