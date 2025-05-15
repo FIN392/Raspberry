@@ -142,10 +142,13 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Contestar con '*yes*'
 
+```master@192.168.1.20's password:```
+
+Teclee la contraseña del usuario por defecto elegida en la creación de la SD.
+
 Si se muestra este mensaje:
 
 ```
-master@192.168.1.20's password:
 Linux FIN392PI 6.12.25+rpt-rpi-v7 #1 SMP Raspbian 1:6.12.25-1+rpt1 (2025-04-30) armv7l
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -167,8 +170,11 @@ Ahora necesitara hacer algunas cofiguraciones, y para ello es más sencillo que 
 sudo -i
 ```
 
-### Forzar a *sudo* a pedir siempre la contraseña
+### Forzar a que *sudo* pida siempre la contraseña
 
+Ejecutar ```visudo``` y reemplazar la línea ```Defaults        env_reset``` y por ```Defaults        env_reset, timestamp_timeout=0```.
+
+Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(ALL) NOPASSWD: ALL``` por ```master ALL=(ALL) ALL```.
 
 ### Actualizar el SO
 
