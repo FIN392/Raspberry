@@ -57,17 +57,6 @@ Pulsar en '*SIGUIENTE*'
 
 
 
-Insert the SD into a card reader.
-
-Launch '*Raspberry Pi Imager*'.
-
-Click on '*Raspberry Pi device*' and choose '*Raspberry Pi 2 - Model B*'.
-
-Click on '*Operating System*' and choose '*Raspberry Pi OS (other)*' and then '*Raspberry Pi OS (32-bit)*'.
-
-Click on '*Storage*' and choose your SD card. 
-
-Click on '*WRITE*'.
 
 ## <a name="startup"></a>First startup and configuration
 
