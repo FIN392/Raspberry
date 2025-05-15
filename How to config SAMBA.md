@@ -11,23 +11,23 @@ apt install samba samba-common-bin -y
 
 ## Create folder
 
-```sh
+```bash
 mkdir -p /home/master/samba
 chown -R master:master /home/master/samba
 ```
 
 ## Create user
 
-```sh
+```bash
 smbpasswd -a master
 ```
 
 ## Config
-```sh
+```bash
 sudo nano /etc/samba/smb.conf
 ```
 
-```sh
+```bash
 [samba]
    path = /home/master/samba
    browseable = yes
@@ -36,18 +36,17 @@ sudo nano /etc/samba/smb.conf
    create mask = 0775
    directory mask = 0775
    public = no
-
 ```
 
 
 ## Restart SAMBA
 
-```sh
+```bash
 systemctl restart smbd
 ```
 
 ## On Windows
 
-```Batch
+```batch
 NET USE S: \\192.168.1.10\samba /USER:master *
 ```
