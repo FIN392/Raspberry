@@ -73,22 +73,40 @@ Pular en '*SÍ*'.
 
 Pulsar en '*SÍ*'.
 
+Tras unos minutos el proceso de generación de la tarjeta SD termina.
+
 ![image](https://github.com/user-attachments/assets/409ea692-c2f3-4ac5-86e1-db9cfb3f11b9)
 
+Pulsar en '*CONTINUAR*' y sacar la tarjeta SD del lector.
 
+------------
 
-
-
-
-## <a name="startup"></a>First startup and configuration
+## <a name="startup"></a>Primer inicio
 
 *(En la Raspberry Pi)*
+
+Concetar un monitor al puerto HMDI de la Raspberry Pi, insertar la tarjeta SD y encender.
+
+Tras varios minutos y reinicios se mostrará algo similar a esto:
+
+```
+Raspbian GNU/Linux 12 FIN392PI tty1
+My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
+FIN392PI login: _
+```
+
+Anote la dirección IP y retire el cable HDMI de la Raspbery Pi. 
 
 
 
 Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
 
 Insert the SD card and turn the Raspberry Pi on.
+
+
+
+------------------------------------
+
 
 Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
 
