@@ -95,7 +95,60 @@ My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
 FIN392PI login: _
 ```
 
-Anote la dirección IP y retire el cable HDMI de la Raspbery Pi. 
+Anotar la dirección IP y retirar el cable HDMI de la Raspbery Pi. 
+
+A partir de este momento el acceso a la Raspberry Pi se realizará desde un cliente SSH.
+
+*(En un ordenador Windows)*
+
+Ejecute el cliente SSH con el siguiente comando desde una ventana de símbolo del sistema (*CMD*):
+
+```
+C:\> ssh.exe 192.168.1.20 -l master
+````
+(La IP 
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:MFKJ/n3hmTvr8PpDzevg+NzXPMTCFAjE32xn7K4LFW8.
+Please contact your system administrator.
+Add correct host key in C:\\Users\\josel/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\josel/.ssh/known_hosts:3
+Host key for 192.168.1.47 has changed and you have requested strict checking.
+Host key verification failed.
+
+
+The authenticity of host '192.168.1.47 (192.168.1.47)' can't be established.
+ED25519 key fingerprint is SHA256:MFKJ/n3hmTvr8PpDzevg+NzXPMTCFAjE32xn7K4LFW8.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+
+```
+C:\> ssh.exe 192.168.1.47 -l master
+master@192.168.1.47's password:
+Linux FIN392PI 6.12.25+rpt-rpi-v7 #1 SMP Raspbian 1:6.12.25-1+rpt1 (2025-04-30) armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+master@FIN392PI:~ $
+```
+
+Enhorabuena, ya esta dentro de su Raspberry Pi. Ahora necesitara hacer algunas cofiguraciones:
+
+###
+
+
+
 
 
 
