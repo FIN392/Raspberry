@@ -1,3 +1,10 @@
+imager_1.8.5.exe
+
+![image](https://github.com/user-attachments/assets/6e122a11-b931-4c2e-a483-4fbd6bef33b8)
+![image](https://github.com/user-attachments/assets/1c5d58a7-71dd-44a3-8e27-880e00be4c07)
+![image](https://github.com/user-attachments/assets/5991675c-d321-4638-b0c5-d22987a329af)
+
+
 
 
 Dispositivo Raspberry Pi = RASPBERRY PI 2
