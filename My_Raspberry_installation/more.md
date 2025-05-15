@@ -9,18 +9,30 @@ Terminal SSH
 
 ![image](https://github.com/user-attachments/assets/69b1e323-acc4-4c2e-bc08-0135f7e479cf)
 
-
-
-
-
-
 # Forzar que sudo pida la contraseña siempre
 
 Edita el archivo de configuración de sudo: ```sudo visudo```
 
-Busca esta línea ```Defaults        env_reset``` y cámbiala por ```Defaults        timestamp_timeout=0```
+Busca esta línea ```Defaults        env_reset``` y cámbiala por ```Defaults        env_reset, timestamp_timeout=0```
+
+Para salvar:
+  - [CTRL]+x
+  - Save modified buffer? y
+  - File Name to Write: /etc/sudoers.tmp [INTRO]
+
+Edita el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(ALL) NOPASSWD: ALL``` por ```master ALL=(ALL) ALL```
 
 Esto le dice a sudo que la contraseña expira inmediatamente, por lo que siempre te pedirá la contraseña para cada comando.
+
+# Actualizar
+
+```apt update && apt upgrade```
+Hay que ser positivo en la vida, así que si te pregunta contesta 'y'.
+```reboot```
+
+
+
+
 
 # lastLogLines.sh
 ```journalctl --identifier="telegramMonitoring" --reverse --lines=20```
