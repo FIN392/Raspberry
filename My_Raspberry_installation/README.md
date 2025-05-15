@@ -105,33 +105,49 @@ Ejecute el cliente SSH con el siguiente comando desde una ventana de símbolo de
 
 ```
 C:\> ssh.exe 192.168.1.20 -l master
-````
-(La IP 
+```
 
+La IP debe ser la mostrada por pantalla en el primer inicio y el usuario (*master*) debe ser el elegido en la creación de la SD.
+
+Si se muestra el siguiente mensaje...
+
+``` 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 It is also possible that a host key has just been changed.
-The fingerprint for the ED25519 key sent by the remote host is
-SHA256:MFKJ/n3hmTvr8PpDzevg+NzXPMTCFAjE32xn7K4LFW8.
+The fingerprint for the ED25159 key sent by the remote host is
+SHA256:MFKJ/n8PpDzevg3hmTvr+NFAjE32xn7K4LFW8zXPMTC.
 Please contact your system administrator.
-Add correct host key in C:\\Users\\josel/.ssh/known_hosts to get rid of this message.
-Offending ECDSA key in C:\\Users\\josel/.ssh/known_hosts:3
-Host key for 192.168.1.47 has changed and you have requested strict checking.
+Add correct host key in C:\\Users\\fin392/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\fin392/.ssh/known_hosts:3
+Host key for 192.168.1.20 has changed and you have requested strict checking.
 Host key verification failed.
+```
 
-
-The authenticity of host '192.168.1.47 (192.168.1.47)' can't be established.
-ED25519 key fingerprint is SHA256:MFKJ/n3hmTvr8PpDzevg+NzXPMTCFAjE32xn7K4LFW8.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-
+Se debe eliminar el siguiente fichero:
 
 ```
-C:\> ssh.exe 192.168.1.47 -l master
-master@192.168.1.47's password:
+C:\>del  C:\Users\fin392\.ssh\known_hosts
+```
+
+Si se muestra el siguiente mensaje...
+
+```
+The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
+ED25159 key fingerprint is SHA256:MFKJ/n8PpDzevg3hmTvr+NFAjE32xn7K4LFW8zXPMTC.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Contestar con '*yes*'
+
+Si se muestra este mensaje:
+
+```
+master@192.168.1.20's password:
 Linux FIN392PI 6.12.25+rpt-rpi-v7 #1 SMP Raspbian 1:6.12.25-1+rpt1 (2025-04-30) armv7l
 
 The programs included with the Debian GNU/Linux system are free software;
