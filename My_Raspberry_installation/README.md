@@ -47,8 +47,21 @@ Pulsar en '*ELEGIR ALMACENAMIENTO*' y seleccionar la tarjeta SD.
 
 Pulsar en '*SIGUIENTE*'
 
+![image](https://github.com/user-attachments/assets/74c9a23f-77b3-4ad4-a96e-8477d89f9d75)
 
+Pulsar en '*EDITAR AJUSTES*'.
 
+Configurar '*GENERAL*', '*SERVICIOS*' y '*OPCIONES*' de la siguiente forma:
+
+![image](https://github.com/user-attachments/assets/37be67b7-15c7-4d96-9a6e-3e5206457a72)
+![image](https://github.com/user-attachments/assets/357e038b-c6a9-4c8f-b581-4dd317207d3f)
+![image](https://github.com/user-attachments/assets/3a77cfdf-f0e3-439f-97a3-80b63086fe27)
+
+*nombre de anfitrión*: 
+*nombre de usuario*:
+*Contrasñea*:
+*SSID*:
+*Contrasñea*:
 
 
 
