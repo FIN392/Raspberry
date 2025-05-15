@@ -1,25 +1,17 @@
 ![Logo](https://github.com/FIN392/Raspberry/raw/main/images/Raspberry-Logo.png)
 
-# My Raspberry installation:<br>How I install my Raspberry Pi?
+# My personal Raspberry Pi installation process
 
-The goal is to do the installation of a Raspberry Pi step by step.
+The objective is to install a Raspberry Pi step by step.
 
-Please understand that these are only the steps I take for my own hardware. The idea is to serve as an example, as with your hardware there may be things that need to be done differently.
+Please note that these are the steps I follow for my own hardware, so they may be slightly different in your case.
 
 ## Requirements
 
 - Raspberry Pi.
-- SD Card (*4 GB or more*).
-- Internet access.
-- Home network details:
-	- One static local IP address (later referred to as *[IP_LAN]*).
-	- Default gateway IP. Typically it is the IP address of the router (later referred to as *[IP_Gateway]*).
-	- Network mask bits. Typically is '/24' (later referred to as *[Mask_bits]*).
-- If you want to connect wireless, you will need also:
-	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity).
-	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
-	- One additional static local IP address (later referred to as *[IP_WLAN]*).
-- A computer (Windows, MacOS or Linux) will be required for the SD card preparation and, optionally, to manage the Raspberry remotely.
+- SD Card.
+- Internet access
+- A computer (Windows, MacOS or Linux) will be required for the SD card preparation.
 
 ## My hardware
 
@@ -49,6 +41,11 @@ Insert the SD into a card reader.
 Launch 'Raspberry Pi Imager'.
 
 Click on 'Operating System' and select '*Raspberry Pi OS (32-bit)*'.
+
+Dispositivo Raspberry Pi = RASPBERRY PI 2
+Sistema operativo = RASPBERRY PI OS LITE (32-BIT)
+
+
 
 Click on 'Storage' and select the correct SD card unit.
 
