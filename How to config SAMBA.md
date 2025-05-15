@@ -50,3 +50,15 @@ systemctl restart smbd
 ```batch
 NET USE S: \\192.168.1.10\samba /USER:master *
 ```
+
+
+```bash
+# Reiniciar el servicio Samba
+sudo systemctl restart smbd && echo "Samba reiniciado"
+
+#!/bin/bash
+service="smbd"
+echo "Reiniciando $service..."
+sudo systemctl restart "$service"
+
+```
