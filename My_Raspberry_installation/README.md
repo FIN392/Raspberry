@@ -31,7 +31,7 @@ El adaptador USB Wifi no es necesario, tambien se puede conectar un cable de red
 
 ## <a name="sd"></a>Grabar la tarjeta SD con el SO de Raspberry Pi
 
-*(Desde un ordenador Windows)*
+*(En un ordenador Windows)*
 
 Descargar el programa [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
@@ -53,18 +53,27 @@ Pulsar en '*EDITAR AJUSTES*'.
 
 Configurar '*GENERAL*', '*SERVICIOS*' y '*OPCIONES*' de la siguiente forma:
 
+- *Nombre de anfitrión*: Nombre que tendrá tu Raspberry.
+- *Nombre de usuario*: Nombre del usuario por defecto. Tradicionalmente era '*pi*' pero es más seguro cambiarlo.
+- *Contrasñea*: Contraseña del usuario por defecto. Será usada para elevar permisos '*su*'.
+- *SSID*: Nombre de la red Wifi.
+- *Contrasñea*: Contraseña de la red Wifi.
+
 ![image](https://github.com/user-attachments/assets/37be67b7-15c7-4d96-9a6e-3e5206457a72)
 ![image](https://github.com/user-attachments/assets/357e038b-c6a9-4c8f-b581-4dd317207d3f)
 ![image](https://github.com/user-attachments/assets/3a77cfdf-f0e3-439f-97a3-80b63086fe27)
 
-*nombre de anfitrión*: 
-*nombre de usuario*:
-*Contrasñea*:
-*SSID*:
-*Contrasñea*:
+Pulsar en '*GUARDAR*'.
 
+![image](https://github.com/user-attachments/assets/3c3186d8-9870-4b16-abef-a61ca13fe465)
 
+Pular en '*SÍ*'.
 
+![image](https://github.com/user-attachments/assets/e21b6d1a-9513-4e2b-b23c-3d12a3cebbdb)
+
+Pulsar en '*SÍ*'.
+
+![image](https://github.com/user-attachments/assets/409ea692-c2f3-4ac5-86e1-db9cfb3f11b9)
 
 
 
@@ -73,7 +82,9 @@ Configurar '*GENERAL*', '*SERVICIOS*' y '*OPCIONES*' de la siguiente forma:
 
 ## <a name="startup"></a>First startup and configuration
 
-*(From the Raspberry Pi)*
+*(En la Raspberry Pi)*
+
+
 
 Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
 
