@@ -21,4 +21,10 @@ if test ! -t 0; then
 	done < /dev/stdin
 fi
 
-curl --silent --request POST $telegramURL --data chat_id=$telegramId --data text="$textMessage" --data parse_mode=html | jq -M ""
+curl \
+	--silent \
+	--request POST "$telegramURL" \
+	--data "chat_id=$telegramId" \
+	--data "text=$textMessage" \
+	--data "parse_mode=html" \
+| jq -M ""
