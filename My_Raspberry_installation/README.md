@@ -12,7 +12,7 @@ Estos son los pasos son para mi propio hardware, por lo que podrían ser ligeram
 - Una Raspberry Pi.
 - Una tarjeta SD.
 - Acceso a Internet.
-- Un ordenador Windows.
+- Un ordenador Windows con lector de SD y un cliente SSH instalado (por ejemplo el OpenSSH incluido en Windows como una *característica adicional*).
 
 ## ¿Que hardware tengo yo?
 
@@ -101,7 +101,7 @@ A partir de este momento el acceso a la Raspberry Pi se realizará desde un clie
 
 *(En un ordenador Windows)*
 
-Ejecute el cliente SSH con el siguiente comando desde una ventana de símbolo del sistema (*CMD*):
+Desde una ventana de símbolo del sistema (*CMD*) ejecute el cliente SSH con el siguiente comando:
 
 ```
 C:\> ssh.exe 192.168.1.20 -l master
@@ -127,7 +127,7 @@ Host key for 192.168.1.20 has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-Se debe eliminar el siguiente fichero:
+Eliminar el siguiente fichero:
 
 ```
 C:\>del  C:\Users\fin392\.ssh\known_hosts
@@ -159,53 +159,28 @@ permitted by applicable law.
 master@FIN392PI:~ $
 ```
 
-Enhorabuena, ya esta dentro de su Raspberry Pi. Ahora necesitara hacer algunas cofiguraciones:
+Enhorabuena, ya esta dentro de su Raspberry Pi.
 
-###
+Ahora necesitara hacer algunas cofiguraciones, y para ello es más sencillo que lo ejecute todo como '*su*':
+
+```
+sudo -i
+```
+
+### Forzar a *sudo* a pedir siempre la contraseña
+
+### Actualizar el SO
+
+apt update && apt upgrade
 
 
 
-
-
-
-Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
-
-Insert the SD card and turn the Raspberry Pi on.
 
 
 
 ------------------------------------
 
 
-Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
-
-Follow the initial configuration windows and choose 'Restart' at the end.
-
-Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*', and set values as follow:
-
-- Tab '*System*':
-	- Click on '*Change Password...*' and change the password for user '*pi*' (it is more secure).
-	- Change '*Hostname*' (For example, 'RB1').
-	- Keep '*Boot*' as '*To Desktop*' (CLI is only for geeks ;-D).
-	- Change '*Auto login*' to '*Disabled*' (it is more secure).
-	- Keep '*Network at Boot*' as '*Do not wait*' (better when network fail).
-	- Keep '*Splash Screen*' as '*Enable*' (just because I like it).
-- Tab 'Interfaces':
-	- Set '*SSH*' as '*Enable*'. I hate to have HMDI monitor, keyboard y mouse cables conneted, so I work using SSH and RDP.
-- Tab 'Location':
-	- Check and/or change '*Locale*', '*Timezone*', '*Keyboard*' and '*WiFi Country*'. This are my options:
-		- '*Locale*': '*en (English)*' / '*US (United States)*' / '*UTF-8*'.
-		- '*Timezone*': '*Europe*' / '*Madrid*'.
-		- '*Keyboard*': '*Dell USB Multimedia*' / '*Spanish*' / '*Spanish (Win keys)*'.
-		- '*WiFi Country*': '*ES Spain*'.
-
-Reboot once again.
-
->**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
-
-## <a name="update"></a>OS update and base software installation
-
-Connect with the Raspberry using SSH and the IP address [DHCP_address].
 
 ```
 # Everything is easier as ROOT ('I AM gROOT')
