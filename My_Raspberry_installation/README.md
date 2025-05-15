@@ -79,8 +79,6 @@ Tras unos minutos el proceso de generación de la tarjeta SD termina.
 
 Pulsar en '*CONTINUAR*' y sacar la tarjeta SD del lector.
 
-------------
-
 ## <a name="startup"></a>Primer inicio
 
 *(En la Raspberry Pi)*
@@ -161,7 +159,9 @@ master@FIN392PI:~ $
 
 Enhorabuena, ya esta dentro de su Raspberry Pi.
 
-Ahora necesitara hacer algunas cofiguraciones, y para ello es más sencillo que lo ejecute todo como '*su*':
+## <a name="update"></a>Actualización y configuración
+
+Ahora necesitara hacer algunas cofiguraciones, y para ello es más sencillo que lo ejecute todo como '*root*':
 
 ```
 sudo -i
@@ -169,16 +169,28 @@ sudo -i
 
 ### Forzar a *sudo* a pedir siempre la contraseña
 
+
 ### Actualizar el SO
 
+```
 apt update && apt upgrade
+```
 
 
 
 
+## <a name="checks"></a>Reinicio y pruebas
+
+???
+
+## <a name="backup"></a>Copia de seguridad
+
+???
+
+---
 
 
-------------------------------------
+
 
 
 
