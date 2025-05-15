@@ -1,3 +1,19 @@
+
+
+Dispositivo Raspberry Pi = RASPBERRY PI 2
+Sistema operativo = RASPBERRY PI OS LITE (32-BIT)
+
+![image](https://github.com/user-attachments/assets/3e962b85-f41f-4be7-8d49-f5d99adc4083)
+
+Terminal SSH
+
+![image](https://github.com/user-attachments/assets/69b1e323-acc4-4c2e-bc08-0135f7e479cf)
+
+
+
+
+
+
 # Forzar que sudo pida la contraseña siempre
 
 Edita el archivo de configuración de sudo: ```sudo visudo```
