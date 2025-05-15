@@ -1,96 +1,217 @@
 ![Logo](https://github.com/FIN392/Raspberry/raw/main/images/Raspberry-Logo.png)
 
-# My Raspberry installation:<br>How I install my Raspberry Pi?
+# Proceso de instalación de mi Raspberry Pi
+*(Actualizado en mayo de 2025)*
 
-The goal is to do the installation of a Raspberry Pi step by step.
+Esto es una guía paso a paso para la instalación de **mi** Raspberry Pi.
 
-Please understand that these are only the steps I take for my own hardware. The idea is to serve as an example, as with your hardware there may be things that need to be done differently.
+Estos son los pasos son para mi propio hardware, por lo que podrían ser ligeramente diferentes en tu caso.
 
-## Requirements
+## Requerimientos
 
-- Raspberry Pi.
-- SD Card (*4 GB or more*).
-- Internet access.
-- Home network details:
-	- One static local IP address (later referred to as *[IP_LAN]*).
-	- Default gateway IP. Typically it is the IP address of the router (later referred to as *[IP_Gateway]*).
-	- Network mask bits. Typically is '/24' (later referred to as *[Mask_bits]*).
-- If you want to connect wireless, you will need also:
-	- USB wifi dongle (only if your Raspberry model do not include wireless connectivity).
-	- SSID and password (later referred to as *[WIFI_SSID]* and *[WIFI_Password]*).
-	- One additional static local IP address (later referred to as *[IP_WLAN]*).
-- A computer (Windows, MacOS or Linux) will be required for the SD card preparation and, optionally, to manage the Raspberry remotely.
+- Una Raspberry Pi.
+- Una tarjeta SD.
+- Acceso a Internet.
+- Un ordenador Windows con lector de SD y un cliente SSH instalado (por ejemplo el OpenSSH incluido en Windows como una *característica adicional*).
 
-## My hardware
-
-I use the following hardware, so other options might involve slight differences:
+## ¿Que hardware tengo yo?
 
 - [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)
 
-## Steps
+El adaptador USB Wifi no es necesario, tambien se puede conectar un cable de red de la Raspberry al router de casa.
 
-1. [Burn Raspberry Pi OS to SD card](#sd).
-2. [First startup and configuration](#startup).
-3. [OS update and base software installation](#update).
-4. [Setup LAN connection](#lan).
-5. [Setup WiFi connection](#wifi).
-6. [Reboot and checks](#checks).
-7. [Backup and periodic update](#backup).
+## Pasos
 
-## <a name="sd"></a>Burn Raspberry Pi OS to SD card
+1. [Grabar la tarjeta SD con el SO de Raspberry Pi](#sd).
+2. [Primer inicio](#startup).
+3. [Actualización y configuración](#update).
+4. [Copia de seguridad](#backup).
 
-*(From a computer)*
+## <a name="sd"></a>Grabar la tarjeta SD con el SO de Raspberry Pi
 
-Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
+*(En un ordenador Windows)*
 
-Insert the SD into a card reader.
+Descargar el programa [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
-Launch 'Raspberry Pi Imager'.
+Ejecutar el programa para instalarlo y al final ejecutarlo.
 
-Click on 'Operating System' and select '*Raspberry Pi OS (32-bit)*'.
+![image](https://github.com/user-attachments/assets/0b838105-b0f3-4ca7-88e8-67f970ec647d)
 
-Click on 'Storage' and select the correct SD card unit.
+Pulsar en '*ELEGIR DISPOSITIVO*' y seleccionar '*Raspberry Pi 2 - Model B*'.
 
-Click on '*WRITE*'.
+Pulsar en '*ELEGIR SO*' y seleccionar '*Raspberry Pi OS (other)*' y luego '*Raspberry Pi OS Lite (32-bit)*'.
 
-## <a name="startup"></a>First startup and configuration
+Pulsar en '*ELEGIR ALMACENAMIENTO*' y seleccionar la tarjeta SD.
 
-*(From the Raspberry Pi)*
+Pulsar en '*SIGUIENTE*'
 
-Connect a HMDI monitor, keyboard, mouse and LAN cable to the Raspberry Pi.
+![image](https://github.com/user-attachments/assets/74c9a23f-77b3-4ad4-a96e-8477d89f9d75)
 
-Insert the SD card and turn the Raspberry Pi on.
+Pulsar en '*EDITAR AJUSTES*'.
 
-Take note of the IP address displayed in the bottom right corner of the '*Welcome to Raspberry Pi*' window (later referred to as *[DHCP_address]*).
+Configurar '*GENERAL*', '*SERVICIOS*' y '*OPCIONES*' de la siguiente forma:
 
-Follow the initial configuration windows and choose 'Restart' at the end.
+- *Nombre de anfitrión*: Nombre que tendrá tu Raspberry.
+- *Nombre de usuario*: Nombre del usuario por defecto. Tradicionalmente era '*pi*' pero es más seguro cambiarlo.
+- *Contrasñea*: Contraseña del usuario por defecto. Será usada para elevar permisos '*su*'.
+- *SSID*: Nombre de la red Wifi.
+- *Contrasñea*: Contraseña de la red Wifi.
 
-Once started, launch '*Raspberry Pi Configuration*' from the menu '*Preferences*', and set values as follow:
+![image](https://github.com/user-attachments/assets/37be67b7-15c7-4d96-9a6e-3e5206457a72)
+![image](https://github.com/user-attachments/assets/357e038b-c6a9-4c8f-b581-4dd317207d3f)
+![image](https://github.com/user-attachments/assets/3a77cfdf-f0e3-439f-97a3-80b63086fe27)
 
-- Tab '*System*':
-	- Click on '*Change Password...*' and change the password for user '*pi*' (it is more secure).
-	- Change '*Hostname*' (For example, 'RB1').
-	- Keep '*Boot*' as '*To Desktop*' (CLI is only for geeks ;-D).
-	- Change '*Auto login*' to '*Disabled*' (it is more secure).
-	- Keep '*Network at Boot*' as '*Do not wait*' (better when network fail).
-	- Keep '*Splash Screen*' as '*Enable*' (just because I like it).
-- Tab 'Interfaces':
-	- Set '*SSH*' as '*Enable*'. I hate to have HMDI monitor, keyboard y mouse cables conneted, so I work using SSH and RDP.
-- Tab 'Location':
-	- Check and/or change '*Locale*', '*Timezone*', '*Keyboard*' and '*WiFi Country*'. This are my options:
-		- '*Locale*': '*en (English)*' / '*US (United States)*' / '*UTF-8*'.
-		- '*Timezone*': '*Europe*' / '*Madrid*'.
-		- '*Keyboard*': '*Dell USB Multimedia*' / '*Spanish*' / '*Spanish (Win keys)*'.
-		- '*WiFi Country*': '*ES Spain*'.
+Pulsar en '*GUARDAR*'.
 
-Reboot once again.
+![image](https://github.com/user-attachments/assets/3c3186d8-9870-4b16-abef-a61ca13fe465)
 
->**NOTE: From now on the monitor, keyboard and mouse connected to the Raspberry will not be necessary.**
+Pular en '*SÍ*'.
 
-## <a name="update"></a>OS update and base software installation
+![image](https://github.com/user-attachments/assets/e21b6d1a-9513-4e2b-b23c-3d12a3cebbdb)
 
-Connect with the Raspberry using SSH and the IP address [DHCP_address].
+Pulsar en '*SÍ*'.
+
+Tras unos minutos el proceso de generación de la tarjeta SD termina.
+
+![image](https://github.com/user-attachments/assets/409ea692-c2f3-4ac5-86e1-db9cfb3f11b9)
+
+Pulsar en '*CONTINUAR*' y sacar la tarjeta SD del lector.
+
+## <a name="startup"></a>Primer inicio
+
+*(En la Raspberry Pi)*
+
+Concetar un monitor al puerto HMDI de la Raspberry Pi, insertar la tarjeta SD y encender.
+
+Tras varios minutos y reinicios se mostrará algo similar a esto:
+
+```
+Raspbian GNU/Linux 12 FIN392PI tty1
+My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
+FIN392PI login: _
+```
+
+Anotar la dirección IP y retirar el cable HDMI de la Raspbery Pi. 
+
+A partir de este momento el acceso a la Raspberry Pi se realizará desde un cliente SSH.
+
+*(En un ordenador Windows)*
+
+Desde una ventana de símbolo del sistema (*CMD*) ejecute el cliente SSH con el siguiente comando:
+
+```
+C:\> ssh.exe 192.168.1.20 -l master
+```
+
+La IP debe ser la mostrada por pantalla en el primer inicio y el usuario (*master*) debe ser el elegido en la creación de la SD.
+
+Si se muestra el siguiente mensaje...
+
+``` 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25159 key sent by the remote host is
+SHA256:MFKJ/n8PpDzevg3hmTvr+NFAjE32xn7K4LFW8zXPMTC.
+Please contact your system administrator.
+Add correct host key in C:\\Users\\fin392/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\fin392/.ssh/known_hosts:3
+Host key for 192.168.1.20 has changed and you have requested strict checking.
+Host key verification failed.
+```
+
+Eliminar el siguiente fichero:
+
+```
+C:\>del  C:\Users\fin392\.ssh\known_hosts
+```
+
+Si se muestra el siguiente mensaje...
+
+```
+The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
+ED25159 key fingerprint is SHA256:MFKJ/n8PpDzevg3hmTvr+NFAjE32xn7K4LFW8zXPMTC.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Contestar con '*yes*'
+
+```master@192.168.1.20's password:```
+
+Teclee la contraseña del usuario por defecto elegida en la creación de la SD.
+
+Si se muestra este mensaje:
+
+```
+Linux FIN392PI 6.12.25+rpt-rpi-v7 #1 SMP Raspbian 1:6.12.25-1+rpt1 (2025-04-30) armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+master@FIN392PI:~ $
+```
+
+Enhorabuena, ya esta dentro de su Raspberry Pi.
+
+## <a name="update"></a>Actualización y configuración
+
+Ahora necesitara hacer algunas cofiguraciones, y para ello es más sencillo que lo ejecute todo como '*root*':
+
+```
+sudo -i
+```
+
+### Forzar a que *sudo* pida siempre la contraseña
+
+Ejecutar ```visudo``` y reemplazar la línea ```Defaults        env_reset``` por ```Defaults        env_reset, timestamp_timeout=0```.
+
+Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(ALL) NOPASSWD: ALL``` por ```master ALL=(ALL) ALL```.
+
+### Cambiar la IP dinámica (DHCP) por una IP estática
+
+```
+nmcli con mod "preconfigured" ipv4.addresses 192.168.1.10/24
+nmcli con mod "preconfigured" ipv4.gateway 192.168.1.1
+nmcli con mod "preconfigured" ipv4.dns "1.1.1.1 8.8.8.8"
+nmcli con mod "preconfigured" ipv4.method manual
+```
+
+```
+nmcli con down "preconfigured" && nmcli con up "preconfigured"
+```
+
+### Actualizar el SO
+
+Actualizar el SO ....
+
+```
+apt update && apt upgrade
+```
+
+... y reiniciar...
+
+```
+sudo reboot
+```
+
+## <a name="backup"></a>Copia de seguridad
+
+???
+
+---
+
+
+
+
+
 
 ```
 # Everything is easier as ROOT ('I AM gROOT')
