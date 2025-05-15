@@ -26,8 +26,7 @@ El adaptador USB Wifi no es necesario, tambien se puede conectar un cable de red
 1. [Grabar la tarjeta SD con el SO de Raspberry Pi](#sd).
 2. [Primer inicio](#startup).
 3. [Actualización y configuración](#update).
-4. [Reinicio y pruebas](#checks).
-5. [Copia de seguridad](#backup).
+4. [Copia de seguridad](#backup).
 
 ## <a name="sd"></a>Grabar la tarjeta SD con el SO de Raspberry Pi
 
@@ -179,28 +178,29 @@ Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(AL
 ### Cambiar la IP dinámica (DHCP) por una IP estática
 
 ```
-nmcli con mod "Wired connection 1" ipv4.addresses 192.168.1.100/24
-nmcli con mod "Wired connection 1" ipv4.gateway 192.168.1.1
-nmcli con mod "Wired connection 1" ipv4.dns "1.1.1.1 8.8.8.8"
-nmcli con mod "Wired connection 1" ipv4.method manual
+nmcli con mod "preconfigured" ipv4.addresses 192.168.1.10/24
+nmcli con mod "preconfigured" ipv4.gateway 192.168.1.1
+nmcli con mod "preconfigured" ipv4.dns "1.1.1.1 8.8.8.8"
+nmcli con mod "preconfigured" ipv4.method manual
 ```
 
 ```
-nmcli con down "Wired connection 1" && nmcli con up "Wired connection 1"
+nmcli con down "preconfigured" && nmcli con up "preconfigured"
 ```
 
 ### Actualizar el SO
+
+Actualizar el SO ....
 
 ```
 apt update && apt upgrade
 ```
 
+... y reiniciar...
 
-
-
-## <a name="checks"></a>Reinicio y pruebas
-
-???
+```
+sudo reboot
+```
 
 ## <a name="backup"></a>Copia de seguridad
 
