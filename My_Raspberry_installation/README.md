@@ -1,53 +1,71 @@
 ![Logo](https://github.com/FIN392/Raspberry/raw/main/images/Raspberry-Logo.png)
 
-# My personal Raspberry Pi installation process
+# Proceso de instalación de mi Raspberry Pi
+*(Actualizado en mayo de 2025)*
 
-The objective is to install a Raspberry Pi step by step.
+Esto es una guía paso a paso para la instalación de **mi** Raspberry Pi.
 
-Please note that these are the steps I follow for my own hardware, so they may be slightly different in your case.
+Estos son los pasos son para mi propio hardware, por lo que podrían ser ligeramente diferentes en tu caso.
 
-## Requirements
+## Requerimientos
 
-- Raspberry Pi.
-- SD Card.
-- Internet access
-- A computer (Windows, MacOS or Linux) will be required for the SD card preparation.
+- Una Raspberry Pi.
+- Una tarjeta SD.
+- Acceso a Internet.
+- Un ordenador Windows.
 
-## My hardware
-
-I use the following hardware, so other options might involve slight differences:
+## ¿Que hardware tengo yo?
 
 - [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)
 
-## Steps
+El adaptador USB Wifi no es necesario, tambien se puede conectar un cable de red de la Raspberry al router de casa.
 
-1. [Burn Raspberry Pi OS to SD card](#sd).
-2. [First startup and configuration](#startup).
-3. [OS update and base software installation](#update).
-4. [Setup LAN connection](#lan).
-5. [Setup WiFi connection](#wifi).
-6. [Reboot and checks](#checks).
-7. [Backup and periodic update](#backup).
+## Pasos
 
-## <a name="sd"></a>Burn Raspberry Pi OS to SD card
+1. [Grabar la tarjeta SD con el SO de Raspberry Pi](#sd).
+2. [Primer inicio](#startup).
+3. [Actualización y configuración](#update).
+4. [Reinicio y pruebas](#checks).
+5. [Copia de seguridad](#backup).
 
-*(From a computer)*
+## <a name="sd"></a>Grabar la tarjeta SD con el SO de Raspberry Pi
 
-Download and install [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
+*(Desde un ordenador Windows)*
+
+Descargar el programa [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
+
+Ejecutar el programa para instalarlo y al final ejecutarlo.
+
+![image](https://github.com/user-attachments/assets/0b838105-b0f3-4ca7-88e8-67f970ec647d)
+
+Pulsar en '*ELEGIR DISPOSITIVO*' y seleccionar '*Raspberry Pi 2 - Model B*'.
+
+Pulsar en '*ELEGIR SO*' y seleccionar '*Raspberry Pi OS (other)*' y luego '*Raspberry Pi OS Lite (32-bit)*'.
+
+Pulsar en '*ELEGIR ALMACENAMIENTO*' y seleccionar la tarjeta SD.
+
+Pulsar en '*SIGUIENTE*'
+
+
+
+
+
+
+
+
+
+
 
 Insert the SD into a card reader.
 
-Launch 'Raspberry Pi Imager'.
+Launch '*Raspberry Pi Imager*'.
 
-Click on 'Operating System' and select '*Raspberry Pi OS (32-bit)*'.
+Click on '*Raspberry Pi device*' and choose '*Raspberry Pi 2 - Model B*'.
 
-Dispositivo Raspberry Pi = RASPBERRY PI 2
-Sistema operativo = RASPBERRY PI OS LITE (32-BIT)
+Click on '*Operating System*' and choose '*Raspberry Pi OS (other)*' and then '*Raspberry Pi OS (32-bit)*'.
 
-
-
-Click on 'Storage' and select the correct SD card unit.
+Click on '*Storage*' and choose your SD card. 
 
 Click on '*WRITE*'.
 
