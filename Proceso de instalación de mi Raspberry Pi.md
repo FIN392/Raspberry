@@ -1,4 +1,4 @@
-![Logo](https://github.com/FIN392/Raspberry/raw/main/images/Raspberry-Logo.png)
+![Logo](https://github.com/FIN392/Raspberry/raw/main/Raspberry-Logo.png)
 
 # Proceso de instalación de mi Raspberry Pi
 *(Actualizado en mayo de 2025)*
