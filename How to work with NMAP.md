@@ -1,6 +1,6 @@
 # How to work with NMAP
 
-## INstall
+## Install
 ```
 apt install nmap
 ```
