@@ -5,7 +5,7 @@
 
 Esto es una guía paso a paso para la instalación de **mi** Raspberry Pi.
 
-Estos son los pasos son para mi propio hardware, por lo que podrían ser ligeramente diferentes en tu caso.
+Estos son los pasos para mi propio hardware, por lo que podrían ser ligeramente diferentes en tu caso.
 
 ## Requerimientos
 
