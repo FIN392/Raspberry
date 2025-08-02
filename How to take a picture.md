@@ -10,3 +10,5 @@ libcamera-still --list-cameras
 libcamera-still -o imagen.jpg --vflip --hflip --width 1280 --height 720 --autofocus-on-capture --encoding=jpg
 
 ```
+
+NOTE: ffmpeg !!!!!
