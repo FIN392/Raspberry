@@ -188,6 +188,12 @@ nmcli con mod "preconfigured" ipv4.method manual
 nmcli con down "preconfigured" && nmcli con up "preconfigured"
 ```
 
+Tras este paso deberas volver a conectar con tu Raspberry Pi. Esta vez con la nueva IP.
+
+```
+C:\> ssh.exe 192.168.1.10 -l master
+```
+
 ### Actualizar el SO
 
 Primero ...
