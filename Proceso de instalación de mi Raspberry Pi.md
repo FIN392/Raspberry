@@ -101,7 +101,7 @@ A partir de este momento el acceso a la Raspberry Pi se realizará desde un clie
 Desde una ventana de símbolo del sistema (*CMD*) ejecute el cliente SSH con el siguiente comando:
 
 ```
-C:\> ssh.exe 192.168.1.20 -l master
+C:\> ssh.exe master@192.168.1.20
 ```
 
 La IP debe ser la mostrada por pantalla en el primer inicio y el usuario (*master*) debe ser el elegido en la creación de la SD.
