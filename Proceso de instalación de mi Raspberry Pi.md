@@ -209,7 +209,8 @@ nmcli con down "preconfigured" && nmcli con up "preconfigured"
 Tras este paso deberas volver a conectar con tu Raspberry Pi. Esta vez con la nueva IP.
 
 ```
-C:\> ssh.exe 192.168.1.10 -l master
+REM Desde una terminal de Widnows
+ssh.exe 192.168.1.10 -l master
 ```
 
 ### Actualizar el SO
