@@ -171,9 +171,15 @@ sudo -i
 
 ### Forzar a que *sudo* pida siempre la contraseña
 
-Ejecutar ```visudo``` y reemplazar la línea ```Defaults        env_reset``` por ```Defaults        env_reset, timestamp_timeout=0```.
+Ejecutar ```visudo``` y reemplazar la línea
+```Defaults        env_reset```
+por
+```Defaults        env_reset, timestamp_timeout=0```
 
-Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(ALL) NOPASSWD: ALL``` por ```master ALL=(ALL) ALL```.
+Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza
+```master ALL=(ALL) NOPASSWD: ALL```
+por
+```master ALL=(ALL) ALL```
 
 ### Cambiar la IP dinámica (DHCP) por una IP estática
 
