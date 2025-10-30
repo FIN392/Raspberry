@@ -172,9 +172,13 @@ sudo -i
 ### Forzar a que *sudo* pida siempre la contraseña
 
 Ejecutar ```visudo``` y reemplazar la línea
-```Defaults        env_reset```
+```
+Defaults        env_reset
+```
 por
-```Defaults        env_reset, timestamp_timeout=0```
+```
+Defaults        env_reset, timestamp_timeout=0
+```
 
 Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza
 ```master ALL=(ALL) NOPASSWD: ALL```
