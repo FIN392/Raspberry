@@ -101,7 +101,8 @@ A partir de este momento el acceso a la Raspberry Pi se realizará desde un clie
 Desde una ventana de símbolo del sistema (*CMD*) ejecute el cliente SSH con el siguiente comando:
 
 ```
-C:\> ssh.exe master@192.168.1.20
+REM Desde una terminal de Widnows
+ssh.exe master@192.168.1.20
 ```
 
 La IP debe ser la mostrada por pantalla en el primer inicio y el usuario (*master*) debe ser el elegido en la creación de la SD.
@@ -127,7 +128,8 @@ Host key verification failed.
 Eliminar el siguiente fichero:
 
 ```
-C:\>del  C:\Users\fin392\.ssh\known_hosts
+REM Desde una terminal de Widnows
+DEL %USERPROFILE%\.ssh\known_hosts
 ```
 
 Si se muestra el siguiente mensaje...
@@ -141,7 +143,9 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Contestar con '*yes*'
 
-```master@192.168.1.20's password:```
+```
+master@192.168.1.20's password:
+```
 
 Teclee la contraseña del usuario por defecto elegida en la creación de la SD.
 
@@ -181,9 +185,13 @@ Defaults        env_reset, timestamp_timeout=0
 ```
 
 Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza
-```master ALL=(ALL) NOPASSWD: ALL```
+```
+master ALL=(ALL) NOPASSWD: ALL
+```
 por
-```master ALL=(ALL) ALL```
+```
+master ALL=(ALL) ALL
+```
 
 ### Cambiar la IP dinámica (DHCP) por una IP estática
 
