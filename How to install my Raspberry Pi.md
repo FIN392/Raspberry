@@ -37,19 +37,37 @@ Install and run it.
 
 <img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/4fdeac5b-727d-4662-870b-28b4bb5720f2" />
 
+Click '*CHOOSE DEVICE*' and select '*Raspberry Pi 2 - Model B*'.
+
+Click '*CHOOSE OS*' and select '*Raspberry Pi OS (other)* / *Raspberry Pi OS Lite (32-bit)*'.
+
+Clock '*CHOOSE STORAGE*' and select the SD card.
+
+Click '*NEXT*'.
+
+<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/3bcacdaf-4763-4706-a0ed-7d0c02adc471" />
+
+Click 'EDIT SETTING'
+
+Set the following data in the 'OS Customisation' window:
+
+General
+Set hostname = fin392pi.local
+Set username and password = fin392 / Secret@
+Configure wireless LAN = PANDORA / FABADA1234FABADA
+Set locale settings = 
+
+Services
+Enable SSH
+
+Options
+Play sound when finished
+Eject media when finished
+Enable telemetry
 
 
 
 
-![image]("https://github.com/user-attachments/assets/022835f2-13ec-4656-b5eb-6dad685938e2")
-
-Pulsar en '*ELEGIR DISPOSITIVO*' y seleccionar '*Raspberry Pi 2 - Model B*'.
-
-Pulsar en '*ELEGIR SO*' y seleccionar '*Raspberry Pi OS (other)*' y luego '*Raspberry Pi OS Lite (32-bit)*'.
-
-Pulsar en '*ELEGIR ALMACENAMIENTO*' y seleccionar la tarjeta SD.
-
-Pulsar en '*SIGUIENTE*'
 
 ![image](https://github.com/user-attachments/assets/74c9a23f-77b3-4ad4-a96e-8477d89f9d75)
 
