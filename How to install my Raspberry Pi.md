@@ -1,6 +1,6 @@
 ![Logo](https://github.com/FIN392/Raspberry/raw/main/Raspberry-Logo.png)
 
-# My Raspberry Pi installation process
+# How to install ***my*** Raspberry Pi
 
 This is a step-by-step guide for setting up ***my*** Raspberry Pi.
 
