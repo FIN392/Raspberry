@@ -1,8 +1,8 @@
 ![Logo](https://github.com/FIN392/Raspberry/raw/main/Raspberry-Logo.png)
 
-# How to install ***my*** Raspberry Pi
+# How to install *my* Raspberry Pi
 
-This is a step-by-step guide for setting up ***my*** Raspberry Pi.
+This is a step-by-step guide for setting up *my* Raspberry Pi.
 
 These are the steps for my own hardware, so they might be slightly different for you.
 
@@ -12,7 +12,6 @@ These are the steps for my own hardware, so they might be slightly different for
 - An SD card
 - Internet access
 - A Windows computer with an SD card reader and an SSH client installed (for example, OpenSSH, which is included within Windows as an *additional feature*)
-
 
 ## What hardware do I have?
 
@@ -34,7 +33,10 @@ The USB WiFi adapter is not necessary; you can also connect a network cable from
 
 Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
-Ejecutar el programa para instalarlo y al final ejecutarlo.
+Install and run it.
+
+<img width="2560" height="1080" alt="image" src="https://github.com/user-attachments/assets/a3117b01-a01b-4154-ab53-b081bf9508af" />
+
 
 ![image](https://github.com/user-attachments/assets/0b838105-b0f3-4ca7-88e8-67f970ec647d)
 
