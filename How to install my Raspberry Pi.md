@@ -2,10 +2,6 @@
 
 # How to install *my* Raspberry Pi
 
-This is a step-by-step guide for setting up *my* Raspberry Pi.
-
-These are the steps for my own hardware, so they might be slightly different for you.
-
 ## Requirements
 
 - A Raspberry Pi
