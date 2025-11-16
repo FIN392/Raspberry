@@ -7,14 +7,18 @@
 - A Raspberry Pi
 - An SD card
 - Internet access
-- A Windows computer with an SD card reader and an SSH client installed (for example, OpenSSH, which is included within Windows as an *additional feature*)
+- A Windows, MacOS or Debian computer with SD reader and an SSH client
 
-## What hardware do I have?
+## What do I have?
+
+This step-by-step guide is for the Raspberry Pi model I have. Your hardware may be different, so there could be slight differences for yours.
 
 - [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
-- [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)
+- [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)(*)
+- Windows 11
 
-The USB WiFi adapter is not necessary; you can also connect a network cable from the Raspberry Pi to your home router.
+(*) The USB WiFi adapter is not necessary; you can also connect a network cable from the Raspberry Pi to your home router.
+
 
 ## Steps
 
