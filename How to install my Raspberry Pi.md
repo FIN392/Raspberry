@@ -29,7 +29,7 @@ The USB WiFi adapter is not necessary; you can also connect a network cable from
 
 ## <a name="sd"></a>Write the Raspberry Pi OS to the SD card
 
-*(En un ordenador Windows)*
+*(Steps to take in Windows)*
 
 Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
@@ -49,21 +49,28 @@ Click '*NEXT*'.
 
 Click 'EDIT SETTING'
 
-Set the following data in the 'OS Customisation' window:
+Configure the following settings in the 'OS Customisation' window:
 
 General
-Set hostname = fin392pi.local
-Set username and password = fin392 / Secret@
-Configure wireless LAN = PANDORA / FABADA1234FABADA
-Set locale settings = 
+Set hostname: fin392pi.local
+Set username and password
+  Username = fin392
+  Password = Secret@
+Configure wireless LAN
+  SSID = PANDORA
+  Passowrd = FABADA1234FABADA
+  Wireless LAN country = ES
+Set locale settings
+  Time zone = Europe/Madrid
+  Keyboard layout = es
 
 Services
-Enable SSH
+  Enable SSH = Use password authentication
 
 Options
-Play sound when finished
-Eject media when finished
-Enable telemetry
+  Play sound when finished = OFF
+  Eject media when finished = ON
+  Enable telemetry = OFF
 
 
 
