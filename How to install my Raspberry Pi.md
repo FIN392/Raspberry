@@ -35,6 +35,12 @@ Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
 Install and run it.
 
+<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/4fdeac5b-727d-4662-870b-28b4bb5720f2" />
+
+
+
+
+
 ![image]("https://github.com/user-attachments/assets/022835f2-13ec-4656-b5eb-6dad685938e2")
 
 Pulsar en '*ELEGIR DISPOSITIVO*' y seleccionar '*Raspberry Pi 2 - Model B*'.
