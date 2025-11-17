@@ -103,38 +103,19 @@ My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
 FIN392PI login: _
 ```
 
+Note the IP address.
 
+You can now remove the HDMI cable from the Raspberry Pi. From this point forward, access will be through an SSH client.
 
+*(Steps to take in Windows)*
 
-
----
-
-
-Concetar un monitor al puerto HMDI de la Raspberry Pi, insertar la tarjeta SD y encender.
-
-Tras varios minutos y reinicios se mostrará algo similar a esto:
+From a command prompt window, run the SSH client with the following command:
 
 ```
-Raspbian GNU/Linux 12 FIN392PI tty1
-My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
-FIN392PI login: _
+C:\> ssh.exe fin392@192.168.1.20
 ```
 
-Anotar la dirección IP y retirar el cable HDMI de la Raspbery Pi. 
-
-A partir de este momento el acceso a la Raspberry Pi se realizará desde un cliente SSH.
-
-*(En un ordenador Windows)*
-
-Desde una ventana de símbolo del sistema (*CMD*) ejecute el cliente SSH con el siguiente comando:
-
-```
-C:\> ssh.exe master@192.168.1.20
-```
-
-La IP debe ser la mostrada por pantalla en el primer inicio y el usuario (*master*) debe ser el elegido en la creación de la SD.
-
-Si se muestra el siguiente mensaje...
+If the following message is displayed...
 
 ``` 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -152,13 +133,13 @@ Host key for 192.168.1.20 has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-Eliminar el siguiente fichero:
+...delete the following file:
 
 ```
 C:\>del  C:\Users\fin392\.ssh\known_hosts
 ```
 
-Si se muestra el siguiente mensaje...
+If the following message is displayed...
 
 ```
 The authenticity of host '192.168.1.20 (192.168.1.20)' can't be established.
@@ -167,13 +148,13 @@ This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-Contestar con '*yes*'
+...type '*yes*'.
 
-```master@192.168.1.20's password:```
+If everything has gone well, you will be asked for the password of the user '*fin392*':
 
-Teclee la contraseña del usuario por defecto elegida en la creación de la SD.
+```fin392@192.168.1.20's password:```
 
-Si se muestra este mensaje:
+After type the password, if this message is displayed...
 
 ```
 Linux FIN392PI 6.12.25+rpt-rpi-v7 #1 SMP Raspbian 1:6.12.25-1+rpt1 (2025-04-30) armv7l
@@ -184,29 +165,33 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-master@FIN392PI:~ $
+fin392@FIN392PI:~ $
 ```
 
-Enhorabuena, ya esta dentro de su Raspberry Pi.
+...congratulations, it's now inside your Raspberry Pi.
 
 ## <a name="update"></a>Update and configure
 
-Ahora necesitara hacer algunas configuraciones, y para ello es más sencillo que lo ejecute todo como '*root*':
+Now you will need to make some configurations, and for this it is easier to run everything as '*root*':
 
 ```
 sudo -i
 ```
 
-### Forzar a que *sudo* pida siempre la contraseña
+### 1. Force *sudo* to always ask for the password
 
-Ejecutar ```visudo``` y reemplazar la línea ```Defaults        env_reset``` por ```Defaults        env_reset, timestamp_timeout=0```.
-
-Editar el archivo '/etc/sudoers.d/010_pi-nopasswd' y reemplaza ```master ALL=(ALL) NOPASSWD: ALL``` por ```master ALL=(ALL) ALL```.
-
-### Cambiar la IP dinámica (DHCP) por una IP estática
+Edit the sudoers file:
 
 ```
-nmcli con mod "preconfigured" ipv4.addresses 192.168.1.10/24
+visudo
+```
+
+Replace line ```Defaults        env_reset``` with ```Defaults        env_reset, timestamp_timeout=0```.
+
+### 2. Change dynamic IP (DHCP) by static IP
+
+```
+nmcli con mod "preconfigured" ipv4.addresses 192.168.1.20/24
 nmcli con mod "preconfigured" ipv4.gateway 192.168.1.1
 nmcli con mod "preconfigured" ipv4.dns "1.1.1.1 8.8.8.8"
 nmcli con mod "preconfigured" ipv4.method manual
@@ -216,22 +201,23 @@ nmcli con mod "preconfigured" ipv4.method manual
 nmcli con down "preconfigured" && nmcli con up "preconfigured"
 ```
 
-Tras este paso deberas volver a conectar con tu Raspberry Pi. Esta vez con la nueva IP.
+After this step, you will need to reconnect to your Raspberry Pi. This time using the new IP address.
 
 ```
-C:\> ssh.exe 192.168.1.10 -l master
+C:\> ssh.exe fin392@192.168.1.20
 ```
 
-### Actualizar el SO
+### 3. Actualizar el SO
 
-Primero ...
+First...
 
 ```
+sudo -i
 apt update -y
 apt upgrade -y
 apt autoremove -y
 ```
-... y despues ...
+...and then...
 
 ```
 sudo reboot
