@@ -1,3 +1,5 @@
+![Logo](https://github.com/FIN392/Raspberry/raw/main/Raspberry-Logo.png)
+
 # Raspberry
 Just another Raspberry repository.
 
