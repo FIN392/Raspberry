@@ -1,4 +1,4 @@
 # Raspberry
-Just another Raspberry stuff repository.
+Just another Raspberry repository.
 
 Please, send me your comments, critics, doubts, requests or sue me.
