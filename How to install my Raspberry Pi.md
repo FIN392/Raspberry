@@ -85,7 +85,7 @@ Click '*YES*'
 
 Click '*YES*'
 
-<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/306eb129-945d-4c65-80ee-5bdabfc0308f" />
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/306eb129-945d-4c65-80ee-5bdabfc0308f" />
 
 Click '*CONTINUE*'
 
@@ -136,7 +136,7 @@ Host key verification failed.
 ...delete the following file:
 
 ```
-C:\>del  C:\Users\fin392\.ssh\known_hosts
+C:\> del  C:\Users\fin392\.ssh\known_hosts
 ```
 
 If the following message is displayed...
@@ -225,6 +225,8 @@ sudo reboot
 
 ## <a name="backup"></a>Backup
 
-Es muy recomendable hacer una copia de la tarjeta SD. "Win32 Disk Imager" es una excelente opción para esto, así que visita su sitio web oficial [win32diskimager.org](https://win32diskimager.org/).
+It is highly recommended to make a copy of your SD card.
+
+'*Win32 Disk Imager*' is an excellent option for this, so visit its official website [win32diskimager.org](https://win32diskimager.org/).
 
 ---
