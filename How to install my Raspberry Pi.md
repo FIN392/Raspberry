@@ -220,7 +220,7 @@ apt autoremove -y
 ...and then...
 
 ```
-sudo reboot
+reboot
 ```
 
 ## <a name="backup"></a>Backup
