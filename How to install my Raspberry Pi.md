@@ -7,14 +7,14 @@
 - A Raspberry Pi
 - An SD card
 - Internet access
-- A Windows, MacOS or Debian computer with SD reader and an SSH client
+- A Windows, MacOS or Debian computer with a SD reader and an SSH client
 
 ## What do I have?
 
 This is the components I have, so please keep in mind that this step-by-step guide may have slight differences in your case.
 - [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)(*)
-- Windows 11
+- [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
 
 (*) The USB WiFi adapter is not necessary. You can connect the Raspberry Pi to your home router via a cable.
 
@@ -33,7 +33,7 @@ Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
 Install and run it.
 
-<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/4fdeac5b-727d-4662-870b-28b4bb5720f2" />
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/4fdeac5b-727d-4662-870b-28b4bb5720f2" />
 
 Click '*CHOOSE DEVICE*' and select '*Raspberry Pi 2 - Model B*'.
 
@@ -43,33 +43,65 @@ Clock '*CHOOSE STORAGE*' and select the SD card.
 
 Click '*NEXT*'.
 
-<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/3bcacdaf-4763-4706-a0ed-7d0c02adc471" />
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/3bcacdaf-4763-4706-a0ed-7d0c02adc471" />
 
-Click 'EDIT SETTING'
+Click '*EDIT SETTING*'
 
 Configure the following settings in the 'OS Customisation' window:
 
-General
-Set hostname: fin392pi.local
+### General
+
+Set hostname = fin392pi.local
+
 Set username and password
 - Username = fin392
-- Password = Secret@
+- Password = abc123
+
 Configure wireless LAN
-- SSID = PANDORA
-- Passowrd = FABADA1234FABADA
+- SSID = WLAN_1234
+- Passowrd = ABCD1234ABCD
+- Hidden SSID = OFF
 - Wireless LAN country = ES
+
 Set locale settings
 - Time zone = Europe/Madrid
 - Keyboard layout = es
 
-Services
-- Enable SSH = Use password authentication
+### Services
 
-Options
-- Play sound when finished = OFF
-- Eject media when finished = ON
-- Enable telemetry = OFF
+Enable SSH = Use password authentication
 
+### Options
+
+Play sound when finished = OFF
+Eject media when finished = ON
+Enable telemetry = OFF
+
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/9ef359f2-39c7-402c-99f5-2e89fc6474bb" />
+
+Click '*YES*'
+
+<img width="640" alt="image" src="https://github.com/user-attachments/assets/a9bdc0aa-cb25-4875-af6c-18a95601d9d8" />
+
+Click '*YES*'
+
+<img width="852" height="602" alt="image" src="https://github.com/user-attachments/assets/306eb129-945d-4c65-80ee-5bdabfc0308f" />
+
+Click '*CONTINUE*'
+
+## <a name="startup"></a>First boot
+
+*(Steps to take in Raspberry Pi)*
+
+Connect a monitor to the Raspberry Pi's HDMI port, insert the SD card, and power it on.
+
+After several minutes and restarts, you will see something similar to this:
+
+```
+Raspbian GNU/Linux 12 FIN392PI tty1
+My IP address in 192.168.1.20 fe80:ef73:d389:f130:5526
+FIN392PI login: _
+```
 
 
 
@@ -77,42 +109,6 @@ Options
 
 ---
 
-
-![image](https://github.com/user-attachments/assets/74c9a23f-77b3-4ad4-a96e-8477d89f9d75)
-
-Pulsar en '*EDITAR AJUSTES*'.
-
-Configurar '*GENERAL*', '*SERVICIOS*' y '*OPCIONES*' de la siguiente forma:
-
-- *Nombre de anfitrión*: Nombre que tendrá tu Raspberry.
-- *Nombre de usuario*: Nombre del usuario por defecto. Tradicionalmente era '*pi*' pero es más seguro cambiarlo.
-- *Contrasñea*: Contraseña del usuario por defecto. Será usada para elevar permisos '*su*'.
-- *SSID*: Nombre de la red Wifi.
-- *Contrasñea*: Contraseña de la red Wifi.
-
-![image](https://github.com/user-attachments/assets/37be67b7-15c7-4d96-9a6e-3e5206457a72)
-![image](https://github.com/user-attachments/assets/357e038b-c6a9-4c8f-b581-4dd317207d3f)
-![image](https://github.com/user-attachments/assets/3a77cfdf-f0e3-439f-97a3-80b63086fe27)
-
-Pulsar en '*GUARDAR*'.
-
-![image](https://github.com/user-attachments/assets/3c3186d8-9870-4b16-abef-a61ca13fe465)
-
-Pular en '*SÍ*'.
-
-![image](https://github.com/user-attachments/assets/e21b6d1a-9513-4e2b-b23c-3d12a3cebbdb)
-
-Pulsar en '*SÍ*'.
-
-Tras unos minutos el proceso de generación de la tarjeta SD termina.
-
-![image](https://github.com/user-attachments/assets/409ea692-c2f3-4ac5-86e1-db9cfb3f11b9)
-
-Pulsar en '*CONTINUAR*' y sacar la tarjeta SD del lector.
-
-## <a name="startup"></a>First boot
-
-*(En la Raspberry Pi)*
 
 Concetar un monitor al puerto HMDI de la Raspberry Pi, insertar la tarjeta SD y encender.
 
