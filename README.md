@@ -10,4 +10,4 @@ This is just another Raspberry Pi repository, so feel free to send me your comme
 
 Easy, use my step-by-step guide to installing the Raspberry Pi:
 
-[How to install my Raspberry Pi](Raspberry/How to install my Raspberry Pi.md)
+[How to install my Raspberry Pi](How to install my Raspberry Pi.md)
