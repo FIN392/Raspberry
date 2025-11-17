@@ -207,7 +207,7 @@ After this step, you will need to reconnect to your Raspberry Pi. This time usin
 C:\> ssh.exe fin392@192.168.1.20
 ```
 
-### 3. Actualizar el SO
+### 3. Update the OS
 
 First...
 
