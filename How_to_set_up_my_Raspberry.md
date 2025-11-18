@@ -1,4 +1,4 @@
-# How to install *my* Raspberry Pi
+# How to set up *my* Raspberry Pi
 
 ## Requirements
 
