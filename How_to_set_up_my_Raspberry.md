@@ -33,8 +33,6 @@ Install and run it.
 
 <img width="640" alt="image" src="assets/setup-1.png" />
 
-![Logo](assets/setup-1.png)
-
 Click '*CHOOSE DEVICE*' and select '*Raspberry Pi 2 - Model B*'.
 
 Click '*CHOOSE OS*' and select '*Raspberry Pi OS (other)* / *Raspberry Pi OS Lite (32-bit)*'.
@@ -43,9 +41,7 @@ Clock '*CHOOSE STORAGE*' and select the SD card.
 
 Click '*NEXT*'.
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/3bcacdaf-4763-4706-a0ed-7d0c02adc471" />
-
-![Logo](assets/setup-2.png)
+<img width="640" alt="image" src="assets/setup-2.png" />
 
 Click '*EDIT SETTING*'
 
@@ -76,24 +72,20 @@ Enable SSH = Use password authentication
 ### Options
 
 Play sound when finished = OFF
+
 Eject media when finished = ON
+
 Enable telemetry = OFF
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/9ef359f2-39c7-402c-99f5-2e89fc6474bb" />
-
-![Logo](assets/setup-3.png)
+<img width="640" alt="image" src="assets/setup-3.png" />
 
 Click '*YES*'
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/a9bdc0aa-cb25-4875-af6c-18a95601d9d8" />
-
-![Logo](assets/setup-4.png)
+<img width="640" alt="image" src="assets/setup-4.png" />
 
 Click '*YES*'
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/306eb129-945d-4c65-80ee-5bdabfc0308f" />
-
-![Logo](assets/setup-5.png)
+<img width="640" alt="image" src="assets/setup-5.png" />
 
 Click '*CONTINUE*'
 
