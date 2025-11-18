@@ -8,6 +8,6 @@ This is just another Raspberry Pi repository. Don't hesitate to hit me up with c
 
 ### Where to begin?
 
-Easy peasy. Just jump into my step-by-step guide: [How to install my Raspberry Pi](How_to_get_your_Raspberry_Pi_up_and_running.md)
+Easy peasy. Just jump into my step-by-step guide: [How to get your Raspberry Pi up and running](How_to_get_your_Raspberry_Pi_up_and_running.md)
 
 ---
