@@ -31,7 +31,7 @@ Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
 Install and run it.
 
-<img width="640" alt="image" src="https://github.com/user-attachments/assets/4fdeac5b-727d-4662-870b-28b4bb5720f2" />
+<img width="640" alt="image" src="assets/setup-1.png" />
 
 ![Logo](assets/setup-1.png)
 
