@@ -2,11 +2,11 @@
 
 # Raspberry Pi
 
-Where to begin?
+### Where to begin?
 
 Just jump into my straightforward guide: [How to get your Raspberry Pi up and running](How_to_get_your_Raspberry_Pi_up_and_running.md)
 
-What's next?
+### What's next?
 
 A Raspberry Pi can be used for multiple purposes, but in almost all cases, these are uses that must be run 24x7.
 
