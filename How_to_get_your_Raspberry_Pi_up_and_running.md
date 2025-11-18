@@ -1,20 +1,20 @@
-# How to set up *my* Raspberry Pi
+# How to get your Raspberry Pi up and running
 
 ## Requirements
 
 - A Raspberry Pi
 - An SD card
 - Internet access
-- A Windows, MacOS or Debian computer with a SD reader and an SSH client
+- A PC (Windows, Mac, or Linux) with an SD card reader and an SSH client
 
 ## What do I have?
 
-This is the components I have, so please keep in mind that this step-by-step guide may have slight differences in your case.
+This is what I used, so your specific steps might look slightly different:
 - [Raspberry Pi 2 Model B Rev 1.1](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - [TP-Link USB WiFi Adapter TL-WN725N](https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/)(*)
 - [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
 
-(*) The USB WiFi adapter is not necessary. You can connect the Raspberry Pi to your home router via a cable.
+(*) The USB WiFi adapter isn't essential. You can just plug the Raspberry into your router with an Ethernet cable.
 
 ## Steps
 
@@ -25,11 +25,11 @@ This is the components I have, so please keep in mind that this step-by-step gui
 
 ## <a name="sd"></a>Write the Raspberry Pi OS to the SD card
 
-*(Steps to take in Windows)*
+*(From your PC)*
 
 Download [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
 
-Install and run it.
+Install it and launch it.
 
 <img width="640" alt="image" src="assets/setup-1.png" />
 
@@ -37,7 +37,7 @@ Click '*CHOOSE DEVICE*' and select '*Raspberry Pi 2 - Model B*'.
 
 Click '*CHOOSE OS*' and select '*Raspberry Pi OS (other)* / *Raspberry Pi OS Lite (32-bit)*'.
 
-Clock '*CHOOSE STORAGE*' and select the SD card.
+Clock '*CHOOSE STORAGE*' and select your SD card.
 
 Click '*NEXT*'.
 
@@ -45,7 +45,7 @@ Click '*NEXT*'.
 
 Click '*EDIT SETTING*'
 
-Configure the following settings in the 'OS Customisation' window:
+In the 'OS Customisation' window, set these things up:
 
 ### General
 
@@ -91,11 +91,11 @@ Click '*CONTINUE*'
 
 ## <a name="startup"></a>First boot
 
-*(Steps to take in Raspberry Pi)*
+*(From your Raspberry Pi)*
 
-Connect a monitor to the Raspberry Pi's HDMI port, insert the SD card, and power it on.
+Plug a monitor into the HDMI port, insert the SD card, and power it on.
 
-After several minutes and restarts, you will see something similar to this:
+Give it a few minutes (it might restart a couple of times). You should see something like this:
 
 ```
 Raspbian GNU/Linux 12 FIN392PI tty1
@@ -105,17 +105,17 @@ FIN392PI login: _
 
 Note the IP address.
 
-You can now remove the HDMI cable from the Raspberry Pi. From this point forward, access will be through an SSH client.
+You can now disconnect the HDMI cable. From here on out, we'll be using SSH to access it.
 
-*(Steps to take in Windows)*
+*(From your PC)*
 
-From a command prompt window, run the SSH client with the following command:
+Open your Command Prompt and run the SSH client like this:
 
 ```
 C:\> ssh.exe fin392@192.168.1.20
 ```
 
-If the following message is displayed...
+If you see this warning...
 
 ``` 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -133,7 +133,7 @@ Host key for 192.168.1.20 has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-...delete the following file:
+...you just need to delete this file:
 
 ```
 C:\> del  C:\Users\fin392\.ssh\known_hosts
@@ -168,17 +168,17 @@ permitted by applicable law.
 fin392@FIN392PI:~ $
 ```
 
-...congratulations, it's now inside your Raspberry Pi.
+...congrats, you're now logged into your Raspberry Pi!
 
 ## <a name="update"></a>Update and configure
 
-Now you will need to make some configurations, and for this it is easier to run everything as '*root*':
+Next, we need toconfig a few settings. It's easier to just run all these commands as 'root':
 
 ```
 sudo -i
 ```
 
-### 1. Force *sudo* to always ask for the password
+### 1. Make *sudo* always ask for the password
 
 Edit the sudoers file:
 
@@ -186,9 +186,9 @@ Edit the sudoers file:
 visudo
 ```
 
-Replace line ```Defaults        env_reset``` with ```Defaults        env_reset, timestamp_timeout=0```.
+Change line ```Defaults        env_reset``` to ```Defaults        env_reset, timestamp_timeout=0```.
 
-### 2. Change dynamic IP (DHCP) by static IP
+### 2. Switch from Dynamic (DHCP) to a Static IP
 
 ```
 nmcli con mod "preconfigured" ipv4.addresses 192.168.1.20/24
@@ -201,7 +201,7 @@ nmcli con mod "preconfigured" ipv4.method manual
 nmcli con down "preconfigured" && nmcli con up "preconfigured"
 ```
 
-After this step, you will need to reconnect to your Raspberry Pi. This time using the new IP address.
+You'll need to reconnect after this step, making sure to use the new static IP address:
 
 ```
 C:\> ssh.exe fin392@192.168.1.20
@@ -209,7 +209,7 @@ C:\> ssh.exe fin392@192.168.1.20
 
 ### 3. Update the OS
 
-First...
+Run these update commands first...
 
 ```
 sudo -i
@@ -217,7 +217,7 @@ apt update -y
 apt upgrade -y
 apt autoremove -y
 ```
-...and then...
+...and then reboot:
 
 ```
 reboot
@@ -225,8 +225,8 @@ reboot
 
 ## <a name="backup"></a>Backup
 
-It is highly recommended to make a copy of your SD card.
+It is highly recommended to create a backup of your SD card.
 
-'*Win32 Disk Imager*' is an excellent option for this, so visit its official website [win32diskimager.org](https://win32diskimager.org/).
+'*Win32 Disk Imager*' is a solid tool for this. You can grab it from their official website [win32diskimager.org](https://win32diskimager.org/).
 
 ---
