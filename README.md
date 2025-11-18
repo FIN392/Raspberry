@@ -2,10 +2,12 @@
 
 ### Disclaimer
 
-This is just another Raspberry Pi repository, so feel free to send me your comments, criticisms, questions, requests, or subpoenas.
+This is just another Raspberry Pi repository. Don't hesitate to hit me up with comments, critiques, questions, feature requests, or... well, even subpoenas.
 
 ---
 
 ### Where to begin?
 
-Easy, use my step-by-step guide to installing the Raspberry Pi: [How to install my Raspberry Pi](How_to_install_my_Raspberry.md)
+Easy peasy. Just jump into my step-by-step guide: [How to install my Raspberry Pi](How_to_get_your_Raspberry_Pi_up_and_running.md)
+
+---
