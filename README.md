@@ -25,7 +25,7 @@ My goal is to provide simple and effective guides for implementing things like:
 
 ## ⚠️ Disclaimer
 
-This is just another Raspberry Pi repository, but I'm always happy to hear from you! Don't be shy, send me your comments, critiques, questions, feature requests, or... well, even subpoenas
+This is just another repository, but I'm always happy to hear from you! Don't be shy, send me your comments, critiques, questions, feature requests, or... well, even subpoenas
 
 ## ⚖️ License
 
