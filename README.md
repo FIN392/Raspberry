@@ -1,4 +1,4 @@
-![Logo](assets/Raspberry-Logo.png)
+![Logo](assets/RaspberryPi-Logo.png)
 
 # Raspberry Pi
 
