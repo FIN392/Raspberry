@@ -188,6 +188,12 @@ visudo
 
 Change line ```Defaults        env_reset``` to ```Defaults        env_reset, timestamp_timeout=0```.
 
+Remove file '010_pi-nopasswd'
+
+```
+rm /etc/sudoers.d/010_pi-nopasswd
+```
+
 ### 2. Switch from Dynamic (DHCP) to a Static IP
 
 ```
