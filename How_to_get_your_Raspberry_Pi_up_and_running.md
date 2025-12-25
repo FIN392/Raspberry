@@ -172,7 +172,7 @@ fin392@FIN392PI:~ $
 
 ## <a name="update"></a>Update and configure
 
-Next, we need toconfig a few settings. It's easier to just run all these commands as 'root':
+Next, we need to config a few settings. It's easier to just run all these commands as 'root':
 
 ```
 sudo -i
